@@ -1,0 +1,2915 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mechasys</title>
+  <script id="mechasys-title-guard">
+    (function () {
+      var BRAND_TITLE = "Mechasys";
+      function syncTitle() {
+        if (document.title !== BRAND_TITLE) document.title = BRAND_TITLE;
+      }
+      syncTitle();
+      if (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-motion");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        syncTitle();
+        var titleEl = document.querySelector("head > title");
+        if (titleEl && window.MutationObserver) {
+          new MutationObserver(syncTitle).observe(titleEl, { childList: true, characterData: true, subtree: true });
+        }
+      });
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="/home-v2/">
+  <meta name="description" content="1:1 robotic laser projection for construction layout — project selected BIM and CAD geometry directly onto floors, walls, and ceilings with 0–3 mm accuracy.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mechasys">
+  <meta property="og:description" content="1:1 robotic laser projection for construction layout — accurate, fast, and verified in the field.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mechasys">
+  <meta name="twitter:description" content="1:1 robotic laser projection for construction layout — accurate, fast, and verified in the field.">
+
+  <style id="mechasys-fonts">
+    @font-face { font-family: "Inter"; src: url("/assets/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 400; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Inter"; src: url("/assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 400; unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: "Inter"; src: url("/assets/UjlFhCnUjxhNfep4oYBPqnEssyo.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 500; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Inter"; src: url("/assets/otTaNuNpVK4RbdlT7zDDdKvQBA.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 500; unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: "Inter"; src: url("/assets/yDtI2UI8XcEg1W2je9XPN3Noo.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 600; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Inter"; src: url("/assets/cRJyLNuTJR5jbyKzGi33wU9cqIQ.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 600; unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: "Inter"; src: url("/assets/syRNPWzAMIrcJ3wIlPIP43KjQs.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 700; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Montserrat"; src: url("/third-party-assets/fontshare/wf/G3U4AIP7I5YYMBY4PZ5BNYEWWVH7G7QB/WED2HATCWTE6B4XVIFFTI3EALCE4D6PD/GDZ4LVIJF6WODYKVZK6E2737DCDQPEMZ.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 500; }
+    @font-face { font-family: "Montserrat"; src: url("/third-party-assets/fontshare/wf/DELXRVKO253LHPYOBD6KD7EW3TJKXCXF/L6SILXET3P727LN5N75LL5PG77IET2IT/6DP3DAT2N5LSQGN5ISPRN63WPP32A54A.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 600; }
+    @font-face { font-family: "Switzer"; src: url("/third-party-assets/fontshare/wf/BLNB4FAQFNK56DWWNF7PMGTCOTZHOEII/ST3WKSSDMBK2MIQQO3MAVYWLF4FTOLFV/6IN5WOLRCYP4G4MOCOHOMXNON6Q7MDAR.woff2") format("woff2"); font-display: swap; font-style: normal; font-weight: 400; }
+  </style>
+
+  <style id="mechasys-design-system">
+    :root {
+      --navy-950: #060c24;
+      --navy-900: #091133;
+      --navy-800: #101e42;
+      --navy-700: #1b2f5c;
+      --cobalt-600: #0047bb;
+      --cobalt-700: #003999;
+      --cobalt-800: #05266b;
+      --laser-500: #00b93b;
+      --laser-300: #7ef29d;
+      --laser-reticle: #a8ff80;
+      --slate-50: #f3f6fb;
+      --slate-100: #e5ecf6;
+      --slate-200: #cfdbe9;
+      --ink-900: #091133;
+      --ink-700: #2b3a52;
+      --ink-600: #41526b;
+      --white: #ffffff;
+      --ice-100: #e6eefc;
+      --ice-200: #c8d7f2;
+
+      --datum-x: 64px;
+      --container-max: 1440px;
+      --scroll-y: 0px;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (max-width: 1024px) {
+      :root {
+        --datum-x: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --datum-x: 20px;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-size-adjust: 100%;
+      overflow-x: clip;
+      background-color: var(--navy-900);
+      color: var(--ink-900);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      background-color: var(--white);
+      color: var(--ink-900);
+      overflow-x: clip;
+      caret-color: var(--cobalt-600);
+    }
+
+    ::selection {
+      background-color: var(--cobalt-600);
+      color: var(--white);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--navy-900);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #243863;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cobalt-600);
+    }
+
+    a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--laser-300);
+      outline-offset: 3px;
+    }
+
+    /* Light surface focus contrast */
+    .surface-light :focus-visible {
+      outline: 2px solid var(--cobalt-600);
+      outline-offset: 3px;
+    }
+
+    img, video, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1, h2, h3, p, dl, dd, ul {
+      margin: 0;
+    }
+
+    /* Skip Link for Keyboard Accessibility */
+    .skip-link {
+      position: fixed;
+      top: -120px;
+      left: var(--datum-x);
+      z-index: 1000;
+      padding: 12px 20px;
+      min-height: 44px;
+      background-color: var(--white);
+      color: var(--navy-900);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: top 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* Unified Master Datum Shell */
+    .datum-shell {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+
+    @media (max-width: 1024px) {
+      .datum-shell {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .datum-shell {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* Chamfered Industrial Buttons (6-vertex cut corners) */
+    .btn-chamfer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 26px;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      clip-path: polygon(13px 0, 100% 0, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%, 0 13px);
+      transition: transform 0.22s var(--ease-out-expo), background-color 0.22s var(--ease-out-expo), color 0.22s var(--ease-out-expo);
+    }
+
+    .btn-chamfer:hover {
+      transform: translateY(-1.5px);
+    }
+
+    .btn-chamfer:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary-light {
+      background-color: var(--white);
+      color: var(--navy-900);
+    }
+    .btn-primary-light:hover {
+      background-color: var(--ice-100);
+    }
+
+    .btn-cobalt {
+      background-color: var(--cobalt-600);
+      color: var(--white);
+    }
+    .btn-cobalt:hover {
+      background-color: #0b57d4;
+    }
+
+    .btn-navy {
+      background-color: var(--navy-900);
+      color: var(--white);
+    }
+    .btn-navy:hover {
+      background-color: var(--cobalt-600);
+    }
+
+    .btn-ghost-dark {
+      background-color: rgba(255, 255, 255, 0.11);
+      color: var(--white);
+    }
+    .btn-ghost-dark:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ============================================================
+       1. COMPACT CLICK-ONLY CHAMFERED NAVIGATION
+       ============================================================ */
+    .site-header {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      pointer-events: none;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-cluster {
+      position: relative;
+      pointer-events: auto;
+    }
+
+    .nav-pill-frame {
+      display: inline-flex;
+      align-items: stretch;
+      background-color: var(--cobalt-600);
+      padding: 1px;
+      clip-path: polygon(13px 0, 100% 0, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%, 0 13px);
+      filter: drop-shadow(0 12px 28px rgba(5, 11, 31, 0.34));
+    }
+
+    /* Crisp hairline separation so pill never vanishes over blue footer */
+    .nav-pill-inner {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--cobalt-600);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    }
+
+    .brand-home-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 18px;
+      text-decoration: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background-color 0.2s ease;
+    }
+    .brand-home-link:hover {
+      background-color: var(--cobalt-700);
+    }
+
+    .brand-home-link svg {
+      width: 132px;
+      height: auto;
+    }
+
+    .menu-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      min-width: 98px;
+      padding: 0 18px;
+      background-color: transparent;
+      color: var(--white);
+      border: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .menu-toggle-btn:hover {
+      background-color: var(--cobalt-700);
+    }
+
+    .menu-icon-bars {
+      width: 16px;
+      height: 12px;
+      position: relative;
+      display: inline-block;
+    }
+    .menu-icon-bars span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1.75px;
+      background-color: var(--white);
+      transition: transform 0.24s var(--ease-out-expo), top 0.24s var(--ease-out-expo), opacity 0.2s ease;
+    }
+    .menu-icon-bars span:nth-child(1) { top: 2px; }
+    .menu-icon-bars span:nth-child(2) { top: 8px; width: 12px; }
+
+    .menu-toggle-btn[aria-expanded="true"] .menu-icon-bars span:nth-child(1) {
+      top: 5px;
+      transform: rotate(45deg);
+    }
+    .menu-toggle-btn[aria-expanded="true"] .menu-icon-bars span:nth-child(2) {
+      top: 5px;
+      width: 100%;
+      transform: rotate(-45deg);
+    }
+
+    /* Expandable Menu Drawer (Opens strictly on click/keyboard) */
+    .nav-drawer {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      width: 284px;
+      background-color: var(--navy-900);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 16px;
+      clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+      box-shadow: 0 24px 48px rgba(4, 9, 26, 0.48);
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.22s var(--ease-out-expo), transform 0.22s var(--ease-out-expo);
+    }
+
+    .nav-drawer[data-open="true"] {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 44px;
+      padding: 10px 14px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: background-color 0.18s ease, padding-left 0.18s var(--ease-out-expo);
+    }
+
+    .nav-list a:hover {
+      background-color: rgba(0, 71, 187, 0.42);
+      padding-left: 18px;
+    }
+
+    .nav-drawer-footer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 490;
+      background-color: rgba(6, 12, 36, 0.36);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+    .nav-backdrop[data-open="true"] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .header-quick-cta {
+      pointer-events: auto;
+      transition: opacity 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo);
+    }
+    .site-header[data-scrolled="true"] .header-quick-cta {
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        top: 12px;
+      }
+      .header-quick-cta {
+        display: none;
+      }
+      .nav-cluster {
+        width: 100%;
+      }
+      .nav-pill-frame,
+      .nav-pill-inner {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .brand-home-link {
+        flex: 1 1 auto;
+      }
+      .nav-drawer {
+        width: 100%;
+      }
+    }
+
+    /* ============================================================
+       2. HERO SECTION (100SVH + INTERACTIVE CAD LASER + SPEC RAIL)
+       ============================================================ */
+    .hero-section {
+      position: relative;
+      min-height: 100svh;
+      background-color: var(--navy-900);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .hero-media-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+
+    .hero-media-layer video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 45%;
+      transform: translate3d(0, calc(var(--scroll-y) * 0.22), 0) scale(1.04);
+      will-change: transform;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(102deg, rgba(6, 12, 36, 0.88) 0%, rgba(9, 17, 51, 0.68) 48%, rgba(9, 17, 51, 0.38) 100%),
+        linear-gradient(180deg, rgba(6, 12, 36, 0.45) 0%, rgba(6, 12, 36, 0.12) 45%, rgba(6, 12, 36, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    /* Interactive 532nm CAD Laser Reticle (preserves native OS cursor!) */
+    .mh-laser-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .mh-laser-overlay[data-active="true"] {
+      opacity: 1;
+    }
+
+    .mh-laser-h,
+    .mh-laser-v {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: var(--laser-reticle);
+      opacity: 0.26;
+      will-change: transform;
+    }
+    .mh-laser-h {
+      width: 100%;
+      height: 1px;
+    }
+    .mh-laser-v {
+      width: 1px;
+      height: 100%;
+    }
+
+    .mh-laser-node {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      will-change: transform;
+    }
+
+    .mh-laser-ring {
+      position: absolute;
+      left: -14px;
+      top: -14px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--laser-reticle);
+      border-radius: 50%;
+      opacity: 0.78;
+    }
+
+    .mh-laser-coords {
+      position: absolute;
+      left: 18px;
+      top: -26px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--laser-reticle);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      opacity: 0.92;
+    }
+
+    .mh-laser-drag-box {
+      position: absolute;
+      border: 1px solid var(--laser-reticle);
+      background-color: rgba(168, 255, 128, 0.05);
+      display: none;
+    }
+
+    /* Hero Foreground Content */
+    .hero-body {
+      position: relative;
+      z-index: 3;
+      padding-top: clamp(132px, 19vh, 210px);
+      padding-bottom: 48px;
+      pointer-events: none;
+    }
+
+    .hero-copy-stack {
+      max-width: 880px;
+      pointer-events: auto;
+    }
+
+    .hero-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: clamp(2.5rem, 5.4vw, 5.15rem);
+      line-height: 1.04;
+      letter-spacing: -0.032em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .hero-title .laser-accent {
+      color: var(--laser-300);
+    }
+
+    .hero-lead {
+      margin-top: 22px;
+      max-width: 60ch;
+      font-size: clamp(1.0625rem, 1.35vw, 1.25rem);
+      line-height: 1.52;
+      color: var(--ice-100);
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Hero Bottom Verified Spec Ledger */
+    .hero-spec-band {
+      position: relative;
+      z-index: 3;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      background-color: rgba(6, 12, 36, 0.68);
+      padding-top: 22px;
+      padding-bottom: 22px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 4px 16px;
+    }
+    .spec-item:first-child {
+      padding-left: 0;
+    }
+    .spec-item + .spec-item {
+      border-left: 1px solid rgba(255, 255, 255, 0.14);
+      padding-left: 20px;
+    }
+
+    .spec-value {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .spec-label {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--ice-200);
+    }
+
+    @media (max-width: 900px) {
+      .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 20px;
+      }
+      .spec-item:nth-child(3) {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-body {
+        padding-top: 108px;
+        padding-bottom: 32px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn-chamfer {
+        width: 100%;
+      }
+      .hero-spec-band {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+      .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .spec-item,
+      .spec-item + .spec-item {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+
+    /* ============================================================
+       3. CONTRACTOR TRUST LEDGER (STATIC ARCHITECTURAL GRID)
+       ============================================================ */
+    .trust-section {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--slate-100);
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .trust-caption {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--ink-600);
+    }
+
+    .trust-logos {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      align-items: center;
+      gap: 28px;
+    }
+
+    .trust-logos li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+    }
+
+    .trust-logos img {
+      max-height: 32px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%) contrast(1.08);
+      opacity: 0.78;
+      transition: opacity 0.2s ease, filter 0.2s ease;
+    }
+
+    .trust-logos img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .trust-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .trust-logos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .trust-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* ============================================================
+       4. COMPLETE SOLUTION (3 ARCHITECTURAL SYSTEM PLATES)
+       ============================================================ */
+    .solution-section {
+      background-color: var(--white);
+      padding-top: 104px;
+      padding-bottom: 104px;
+    }
+
+    .section-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: end;
+      gap: 40px;
+      margin-bottom: clamp(44px, 5vw, 68px);
+    }
+
+    .section-heading {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.875rem, 3.3vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.028em;
+      color: var(--ink-900);
+      text-wrap: balance;
+    }
+
+    .section-lead {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-700);
+      max-width: 62ch;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.92fr 1.08fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .pillar-link {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      border-top: 1px solid var(--slate-200);
+      padding-top: 20px;
+      transition: border-color 0.25s ease;
+    }
+
+    .pillar-link:hover {
+      border-top-color: var(--cobalt-600);
+    }
+
+    .pillar-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      background-color: var(--navy-900);
+      clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+    }
+
+    .pillar-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.09) translate3d(0, var(--photo-drift, 0px), 0);
+      transition: transform 0.35s var(--ease-out-expo);
+      will-change: transform;
+    }
+
+    .pillar-link:hover .pillar-media img {
+      transform: scale(1.13) translate3d(0, var(--photo-drift, 0px), 0);
+    }
+
+    .pillar-body {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      gap: 10px;
+    }
+
+    .pillar-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--ink-900);
+    }
+
+    .pillar-desc {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink-700);
+      max-width: 48ch;
+    }
+
+    .pillar-action {
+      margin-top: auto;
+      padding-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cobalt-600);
+    }
+
+    .pillar-action svg {
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .pillar-link:hover .pillar-action svg {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 1024px) {
+      .section-intro {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .solution-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .pillar-media {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    /* ============================================================
+       5. INTERACTIVE 3-STEP WORKFLOW (#workflow — DESKTOP & MOBILE)
+       ============================================================ */
+    .workflow-section {
+      position: relative;
+      background-color: var(--navy-900);
+      color: var(--white);
+      padding-top: 108px;
+      padding-bottom: 108px;
+      scroll-margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .workflow-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: clamp(36px, 4.5vw, 56px);
+    }
+
+    .workflow-header .section-heading {
+      color: var(--white);
+    }
+
+    .workflow-header .section-lead {
+      color: var(--ice-200);
+      max-width: 52ch;
+    }
+
+    .workflow-stage-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 430px) minmax(0, 1fr);
+      gap: clamp(28px, 4vw, 56px);
+      align-items: start;
+    }
+
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-tab {
+      width: 100%;
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      padding: 22px 24px;
+      cursor: pointer;
+      clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+      transition: background-color 0.22s var(--ease-out-expo), border-color 0.22s var(--ease-out-expo);
+    }
+
+    .step-tab:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .step-tab[aria-selected="true"] {
+      background-color: var(--navy-800);
+      border-color: var(--laser-500);
+    }
+
+    .step-tab-top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .step-num {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--laser-300);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-name {
+      font-family: "Montserrat", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .step-desc {
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ice-200);
+    }
+
+    .step-meta {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--laser-300);
+    }
+
+    /* Interactive CAD Blueprint Canvas */
+    .blueprint-viewport {
+      position: relative;
+      background-color: #0b1636;
+      border: 1px solid rgba(155, 178, 202, 0.24);
+      padding: 20px 24px 24px;
+      clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+    }
+
+    .blueprint-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(155, 178, 202, 0.16);
+    }
+
+    .blueprint-status {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ice-100);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .layer-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .layer-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 14px;
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .layer-chip[aria-pressed="true"] {
+      background-color: rgba(0, 185, 59, 0.18);
+      border-color: var(--laser-300);
+    }
+
+    .layer-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.35);
+    }
+    .layer-chip[aria-pressed="true"] .layer-dot {
+      background-color: var(--laser-300);
+    }
+
+    /* Official Mechasys Workflow SVG Styling & Step State Transitions */
+    .mechasys-workflow-svg {
+      width: 100%;
+      height: auto;
+      max-height: 540px;
+      display: block;
+      margin-inline: auto;
+    }
+    .mechasys-workflow-svg * { vector-effect: non-scaling-stroke; }
+    .mechasys-workflow-svg text { font: 500 15px "Inter", Arial, sans-serif; fill: #ffffff; stroke: none; }
+    .mechasys-workflow-svg .small { font-size: 12.5px; fill: #b8cae4; }
+    .mechasys-workflow-svg .survey-grid path { stroke: #355272; stroke-width: 0.6; fill: none; opacity: 0.24; }
+    .mechasys-workflow-svg .survey-grid .survey-tick { stroke: #89a3bf; opacity: 0.65; }
+    .mechasys-workflow-svg .floor-slab { fill: #102345; stroke: #607594; stroke-width: 1.1; }
+    .mechasys-workflow-svg .architectural-detail { stroke: #9aadc3; stroke-width: 0.75; fill: none; opacity: 0.55; }
+    .mechasys-workflow-svg .cad-base { fill: none; stroke: #7c91ac; stroke-width: 1; opacity: 0.35; }
+    .mechasys-workflow-svg .wall-selected { fill: none; stroke: #00b93b; stroke-width: 2.2; transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .conduit-selected { fill: none; stroke: #8ef5b1; stroke-width: 2.2; transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .clearance { fill: none; stroke: #ffffff; stroke-width: 2.6; transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .plan-checks { transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .plan-checks circle { fill: #00b93b; }
+    .mechasys-workflow-svg .plan-checks path { fill: none; stroke: #091133; stroke-width: 2.2; }
+    .mechasys-workflow-svg .source-panel > rect,
+    .mechasys-workflow-svg .team-action rect,
+    .mechasys-workflow-svg .inspection > rect,
+    .mechasys-workflow-svg .tablet > rect { fill: #0c1835; stroke: #6a85a6; stroke-width: 1.1; }
+    .mechasys-workflow-svg .source-panel > path,
+    .mechasys-workflow-svg .input-content > path,
+    .mechasys-workflow-svg .tablet > path { fill: none; stroke: #354969; }
+    .mechasys-workflow-svg .toggle { fill: #00b93b; }
+    .mechasys-workflow-svg .walls-knob,
+    .mechasys-workflow-svg .mep-knob { fill: #ffffff; transition: transform 0.25s ease; }
+    .mechasys-workflow-svg .projector-drawing { stroke: #8da5c5; stroke-width: 1; fill: none; }
+    .mechasys-workflow-svg .hardware-face.side { fill: #0e1a38; stroke: #647e9f; }
+    .mechasys-workflow-svg .hardware-face.front { fill: #132344; stroke: #9aafca; }
+    .mechasys-workflow-svg .hardware-detail { stroke: #627c9d; stroke-width: 0.75; }
+    .mechasys-workflow-svg .hardware-outline,
+    .mechasys-workflow-svg .hardware-handle { stroke: #a5bbd5; stroke-width: 1.1; }
+    .mechasys-workflow-svg .hardware-aperture { fill: #091133; stroke: #8da5c5; }
+    .mechasys-workflow-svg .hardware-lens { stroke: #00b93b; fill: #0c2d32; }
+    .mechasys-workflow-svg .hardware-panel { fill: #142e4c; stroke: #8ba9ca; stroke-width: 0.9; }
+    .mechasys-workflow-svg .hardware-power { fill: none; stroke: #00b93b; stroke-width: 0.9; }
+    .mechasys-workflow-svg .hardware-fastener { fill: #8da5c5; stroke: none; }
+    .mechasys-workflow-svg .projection-ray { fill: none; stroke: #00b93b; stroke-width: 1.6; stroke-dasharray: 6 5; transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .scale-note path { stroke: #6e829e; fill: none; }
+    .mechasys-workflow-svg .scale-note text { font-size: 13px; fill: #b8cae4; }
+    .mechasys-workflow-svg .inspection-walls { stroke: #a9bfd4; fill: none; stroke-width: 1.1; }
+    .mechasys-workflow-svg .inspection-service { stroke: #00b93b; stroke-width: 2.2; fill: none; }
+    .mechasys-workflow-svg .inspection-dimension { stroke: #ffffff; fill: none; stroke-width: 1.2; }
+    .mechasys-workflow-svg .inspection-focus { stroke: #7ef29d; stroke-width: 1; stroke-dasharray: 3 5; fill: none; }
+    .mechasys-workflow-svg .record-meter { stroke: #00b93b; stroke-width: 2.5; }
+    .mechasys-workflow-svg .record-route { stroke: #00b93b; fill: none; stroke-width: 1.8; marker-end: url(#story-arrow); transition: opacity 0.3s ease; }
+    .mechasys-workflow-svg .receipt path { stroke: #00b93b; stroke-width: 2; fill: none; }
+
+    /* Step-driven Visibility (crisp full-contrast panels for active step, zero low-contrast ghost text) */
+    .blueprint-viewport[data-walls="false"] .wall-selected { display: none; }
+    .blueprint-viewport[data-walls="false"] .walls-toggle { fill: #263754; }
+    .blueprint-viewport[data-walls="false"] .walls-knob { transform: translateX(-18px); }
+
+    .blueprint-viewport[data-mep="false"] .conduit-selected { display: none; }
+    .blueprint-viewport[data-mep="false"] .mep-toggle { fill: #263754; }
+    .blueprint-viewport[data-mep="false"] .mep-knob { transform: translateX(-18px); }
+
+    /* Step 1: Visualize */
+    .blueprint-viewport[data-step="1"] .group-step-2,
+    .blueprint-viewport[data-step="1"] .group-step-3 {
+      display: none;
+    }
+
+    /* Step 2: Build */
+    .blueprint-viewport[data-step="2"] .source-panel,
+    .blueprint-viewport[data-step="2"] .group-step-3 {
+      display: none;
+    }
+
+    /* Step 3: Perfect */
+    .blueprint-viewport[data-step="3"] .group-step-1,
+    .blueprint-viewport[data-step="3"] .group-step-2 {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .solution-section,
+      .workflow-section,
+      .results-section,
+      .cta-section {
+        padding-top: 76px;
+        padding-bottom: 76px;
+      }
+      .workflow-stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+       6. FIELD PROOF CASE STUDIES (ALEC & EGG-TELSA)
+       ============================================================ */
+    .results-section {
+      background-color: var(--slate-50);
+      padding-top: 108px;
+      padding-bottom: 108px;
+    }
+
+    .results-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: clamp(44px, 5vw, 72px);
+    }
+
+    .case-stack {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 6vw, 84px);
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: clamp(28px, 4.5vw, 64px);
+      align-items: center;
+      padding-top: clamp(32px, 4vw, 48px);
+      border-top: 1px solid var(--slate-200);
+    }
+
+    .case-row.reverse {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    }
+    .case-row.reverse .case-media {
+      order: 2;
+    }
+    .case-row.reverse .case-content {
+      order: 1;
+    }
+
+    .case-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10.5;
+      background-color: var(--navy-900);
+      clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+    }
+
+    .case-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.09) translate3d(0, var(--photo-drift, 0px), 0);
+      will-change: transform;
+    }
+
+    .case-metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 16px 24px;
+      margin-bottom: 18px;
+    }
+
+    .case-figure {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(3.25rem, 6vw, 5.25rem);
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      color: var(--cobalt-600);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .case-denominator {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .case-denominator strong {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink-900);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .case-denominator span {
+      font-size: 14px;
+      color: var(--ink-600);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .case-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--ink-900);
+      text-wrap: balance;
+    }
+
+    .case-summary {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-700);
+      max-width: 54ch;
+    }
+
+    .case-facts {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-900);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .case-facts span::before {
+      content: "▪ ";
+      color: var(--laser-500);
+    }
+
+    .case-cta {
+      margin-top: 26px;
+    }
+
+    @media (max-width: 960px) {
+      .case-row,
+      .case-row.reverse {
+        grid-template-columns: 1fr;
+      }
+      .case-row.reverse .case-media {
+        order: 0;
+      }
+      .case-row.reverse .case-content {
+        order: 0;
+      }
+    }
+
+    /* ============================================================
+       7. SYMMETRIC WORK-PACKAGE CONVERSION BAND (#partners)
+       ============================================================ */
+    .cta-section {
+      position: relative;
+      background-color: var(--navy-900);
+      color: var(--white);
+      padding-top: 112px;
+      padding-bottom: 112px;
+      overflow: hidden;
+    }
+
+    .cta-blueprint-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .cta-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 17, 51, 0.9) 0%, rgba(9, 17, 51, 0.74) 50%, rgba(9, 17, 51, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    .cta-center {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .cta-copy {
+      margin-top: 18px;
+      font-size: clamp(1rem, 1.25vw, 1.125rem);
+      line-height: 1.6;
+      color: var(--ice-100);
+      max-width: 56ch;
+    }
+
+    .cta-buttons {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .cta-reassurance {
+      margin-top: 24px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ice-200);
+    }
+
+    @media (max-width: 520px) {
+      .cta-buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+      .cta-buttons .btn-chamfer {
+        width: 100%;
+      }
+    }
+
+    /* ============================================================
+       8. COMPACT CORPORATE FOOTER (180PX SIGNATURE, CHUNKED <=4)
+       ============================================================ */
+    .site-footer {
+      background-color: var(--cobalt-600);
+      color: var(--white);
+      padding-top: 72px;
+      padding-bottom: 40px;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
+      gap: 48px 64px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .newsletter-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .newsletter-form {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ice-100);
+    }
+
+    .newsletter-controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-input {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 48px;
+      padding: 12px 16px;
+      background-color: var(--cobalt-800);
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      caret-color: var(--white);
+    }
+
+    .newsletter-input::placeholder {
+      color: #dbe8ff;
+      opacity: 1;
+    }
+
+    .newsletter-feedback {
+      min-height: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ice-100);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+    }
+
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 14px;
+      color: var(--ice-100);
+      text-decoration: none;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-signature-logo {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      width: 180px;
+      max-width: 180px;
+      opacity: 0.96;
+      transition: opacity 0.22s var(--ease-out-expo), transform 0.22s var(--ease-out-expo);
+    }
+    .footer-signature-logo:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+    .footer-signature-logo svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .social-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background-color: rgba(5, 38, 107, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--white);
+      transition: background-color 0.2s ease, transform 0.2s var(--ease-out-expo);
+    }
+    .social-list a:hover {
+      background-color: var(--navy-900);
+      transform: translateY(-1px);
+    }
+    .social-list svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-legal-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 24px;
+      font-size: 13px;
+      color: var(--ice-100);
+    }
+
+    .legal-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 20px;
+    }
+
+    .legal-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      color: var(--ice-100);
+      text-decoration: none;
+    }
+    .legal-links a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 960px) {
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-footer {
+        padding-top: 52px;
+        padding-bottom: 32px;
+      }
+      .newsletter-controls {
+        flex-direction: column;
+      }
+      .footer-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .footer-signature-logo {
+        width: 148px;
+        max-width: 148px;
+      }
+    }
+
+    /* ============================================================
+       9. BOTTOM PRECISION LASER SCROLL PROGRESS BAR
+       ============================================================ */
+    .laser-scroll-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 600;
+      pointer-events: none;
+      background-color: rgba(9, 17, 51, 0.25);
+    }
+
+    .laser-scroll-fill {
+      width: 100%;
+      height: 100%;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, var(--cobalt-600) 0%, var(--laser-500) 85%, var(--laser-300) 100%);
+      will-change: transform;
+    }
+
+    /* ============================================================
+       10. SCROLL-DRIVEN LASER DATUM CHOREOGRAPHY
+       ============================================================ */
+    .hero-media-layer video {
+      transform: translate3d(0, calc(var(--scroll-y) * 0.28), 0) scale(calc(1.05 + var(--hero-progress, 0) * 0.08));
+    }
+
+    .hero-copy-stack {
+      transform: translate3d(0, calc(var(--scroll-y) * -0.18), 0);
+      opacity: calc(1 - var(--hero-progress, 0) * 0.86);
+      filter: blur(calc(var(--hero-progress, 0) * 3px));
+      will-change: transform, opacity;
+    }
+
+    /* Laser Scan Hairline on Architectural Boundaries */
+    .pillar-link,
+    .case-row {
+      position: relative;
+    }
+
+    .pillar-link::before,
+    .case-row::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--laser-500) 0%, var(--cobalt-600) 100%);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.78s var(--ease-out-expo) var(--stagger, 0ms), opacity 0.45s ease var(--stagger, 0ms);
+    }
+
+    .pillar-link[data-inview="true"]::before,
+    .case-row[data-inview="true"]::before {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    /* Progressive Reveal & Chamfered Aperture Shutter (Default visible without .js-motion) */
+    html.js-motion [data-reveal] {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0);
+      transition: opacity 0.68s var(--ease-out-expo) var(--stagger, 0ms), transform 0.68s var(--ease-out-expo) var(--stagger, 0ms);
+    }
+
+    html.js-motion [data-reveal][data-inview="true"] {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    html.js-motion [data-shutter] {
+      opacity: 0;
+      clip-path: polygon(18px 24%, 100% 24%, 100% 100%, calc(100% - 18px) 100%, 0 100%, 0 calc(24% + 18px));
+      transform: translate3d(0, 32px, 0);
+      filter: saturate(0.72) brightness(0.86);
+      transition:
+        opacity 0.65s var(--ease-out-expo) var(--stagger, 0ms),
+        clip-path 0.82s var(--ease-out-expo) var(--stagger, 0ms),
+        transform 0.78s var(--ease-out-expo) var(--stagger, 0ms),
+        filter 0.78s ease var(--stagger, 0ms);
+    }
+
+    html.js-motion [data-shutter][data-inview="true"] {
+      opacity: 1;
+      clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+      transform: translate3d(0, 0, 0);
+      filter: saturate(1) brightness(1);
+    }
+
+    /* Bi-directional Photo + Copy Depth Drift */
+    .pillar-media img,
+    .case-media img {
+      transform: scale(1.14) translate3d(0, var(--photo-drift, 0px), 0);
+    }
+
+    .case-content {
+      transform: translate3d(0, var(--copy-drift, 0px), 0);
+      will-change: transform;
+    }
+
+    /* Sticky Scroll-Driven 3-Step Workflow on Desktop */
+    .step-progress-rail {
+      width: 100%;
+      height: 2px;
+      margin-top: 14px;
+      background-color: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .step-progress-fill {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--cobalt-600) 0%, var(--laser-500) 65%, var(--laser-300) 100%);
+      transform-origin: 0 50%;
+      transform: scaleX(var(--tab-progress, 0));
+      transition: transform 0.12s linear;
+    }
+
+    @media (min-width: 1025px) {
+      .workflow-scroll-runway {
+        min-height: 215vh;
+        position: relative;
+      }
+      .workflow-sticky-pin {
+        position: sticky;
+        top: 84px;
+      }
+    }
+
+    /* Bounded Optical Reticle Rotation (Runs Only When Workflow Section Is Onscreen) */
+    @keyframes laserReticleSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .mechasys-workflow-svg .inspection-focus {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: laserReticleSpin 14s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .workflow-section[data-active-zone="true"] .mechasys-workflow-svg .inspection-focus {
+      animation-play-state: running;
+    }
+
+    .cta-blueprint-bg {
+      opacity: var(--cta-blueprint-opacity, 0.14);
+      transition: opacity 0.2s linear;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media-layer video,
+      .hero-copy-stack,
+      .pillar-media img,
+      .case-media img,
+      .case-content {
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        transition: none !important;
+        will-change: auto !important;
+      }
+      .workflow-scroll-runway {
+        min-height: auto !important;
+      }
+      .workflow-sticky-pin {
+        position: static !important;
+      }
+      .mechasys-workflow-svg .inspection-focus {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Shared Official Mechasys Wordmark Symbol -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden">
+    <defs>
+      <symbol id="mechasys-wordmark" viewBox="0 0 1766.8 284.51">
+        <path fill="#ffffff" d="M1678.11,88.69c-6.47,0-11.49,5.02-11.49,11.49s5.02,11.49,11.49,11.49,11.49-5.02,11.49-11.49-5.02-11.49-11.49-11.49M1678.11,109.74c-5.5,0-9.52-4.05-9.52-9.55s4.02-9.57,9.52-9.57,9.55,4.08,9.55,9.57-4.02,9.55-9.55,9.55"></path>
+        <path fill="#ffffff" d="M1683.71,97.57c0-2.58-1.76-4.21-5.05-4.21h-5.34v13.62h3.47v-5.05h1l2.42,5.05h4.05l-3.08-5.5c.87-.34,2.53-1.32,2.53-3.92M1678.11,99.2h-1.32v-3.05h1.32c1.16,0,2.1.26,2.1,1.53s-.95,1.53-2.1,1.53"></path>
+        <path fill="#ffffff" d="M1744.11,22.47v173.37l-66.22,66.22H22.47V87.93L88.69,22.47h1655.42ZM1766.59,0H79.39l-6.57,6.6L6.6,72.05,0,78.62v205.89h1687.23l6.55-6.57,66.22-66.22,6.6-6.6V0Z"></path>
+        <polygon fill="#ffffff" points="672.77 111.26 684.09 99.93 684.09 88.83 569.96 88.83 569.96 195.83 684.09 195.83 684.09 184.71 672.77 173.41 592.36 173.41 592.36 111.26 672.77 111.26"></polygon>
+        <polygon fill="#ffffff" points="1230.53 111.26 1241.85 99.93 1241.85 88.83 1127.72 88.65 1127.72 151.81 1219.45 151.81 1219.45 173.43 1139.07 173.43 1127.72 184.74 1127.72 195.86 1241.85 195.86 1241.85 132.86 1150.12 132.86 1150.12 111.26 1230.53 111.26"></polygon>
+        <polygon fill="#ffffff" points="1600.35 111.26 1611.68 99.93 1611.68 88.83 1497.55 88.65 1497.55 151.81 1589.28 151.81 1589.28 173.43 1508.9 173.43 1497.55 184.74 1497.55 195.86 1611.68 195.86 1611.68 132.86 1519.94 132.86 1519.94 111.26 1600.35 111.26"></polygon>
+        <polygon fill="#ffffff" points="488.16 111.26 499.48 99.93 499.48 88.83 385.94 88.86 385.94 195.86 499.48 195.83 499.48 184.71 488.16 173.41 408.36 173.41 408.36 151.65 488.13 151.65 488.13 132.68 408.36 132.68 408.36 111.26 488.16 111.26"></polygon>
+        <polygon fill="#ffffff" points="1020.27 88.84 980.95 88.84 932.68 195.83 948.84 195.83 961.11 187.35 1000.58 99.91 1040.11 187.35 1052.38 195.83 1068.54 195.83 1020.27 88.84"></polygon>
+        <path fill="#ffffff" d="M1000.6,162.27c-6.14,0-11.12,4.99-11.12,11.15s4.99,11.1,11.12,11.1,11.15-4.96,11.15-11.1-5.01-11.15-11.15-11.15"></path>
+        <polygon fill="#ffffff" points="1437.76 88.84 1418.15 88.84 1404.04 95.2 1369.73 138.1 1335.39 95.2 1321.25 88.84 1301.69 88.84 1358.42 159.84 1358.42 195.83 1380.82 195.83 1380.82 160.01 1437.76 88.84"></polygon>
+        <polygon fill="#ffffff" points="273.33 88.86 235.19 173.41 197.04 88.86 154.91 88.86 154.91 195.86 166 195.86 177.33 184.51 177.33 99.86 220.64 195.86 235.19 195.83 249.71 195.86 293.05 99.83 293.05 184.51 304.35 195.86 315.44 195.86 315.44 88.86 273.33 88.86"></polygon>
+        <polygon fill="#ffffff" points="850.44 88.86 850.44 132.71 777.01 132.71 777.01 88.86 754.59 88.86 754.59 195.86 765.68 195.86 777.01 184.51 777.01 151.68 850.44 151.68 850.44 184.51 861.77 195.86 872.86 195.86 872.86 88.86 850.44 88.86"></polygon>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Navigation Backdrop -->
+  <div class="nav-backdrop" id="nav-backdrop" data-open="false" aria-hidden="true"></div>
+
+  <!-- Compact Chamfered Navigation (Opens Strictly on Click/Keyboard) -->
+  <header class="site-header" id="site-header" data-scrolled="false">
+    <div class="datum-shell header-row">
+      <nav class="nav-cluster" aria-label="Primary">
+        <div class="nav-pill-frame">
+          <div class="nav-pill-inner">
+            <a href="/home-v2/" class="brand-home-link" aria-label="Mechasys home">
+              <svg viewBox="0 0 1766.8 284.51" aria-hidden="true"><use href="#mechasys-wordmark"></use></svg>
+            </a>
+            <button type="button" class="menu-toggle-btn" id="menu-toggle" aria-expanded="false" aria-controls="nav-drawer">
+              <span class="menu-icon-bars" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+              <span id="menu-toggle-label">Menu</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-drawer" id="nav-drawer" data-open="false" inert>
+          <ul class="nav-list">
+            <li><a href="/how-it-works/">How it works <span aria-hidden="true">→</span></a></li>
+            <li><a href="/applications/">Applications <span aria-hidden="true">→</span></a></li>
+            <li><a href="/resources/customer-results/">Customer results <span aria-hidden="true">→</span></a></li>
+            <li><a href="/datasheet/">XR Datasheet <span aria-hidden="true">→</span></a></li>
+            <li><a href="/become-a-dealer/">Partners <span aria-hidden="true">→</span></a></li>
+          </ul>
+          <div class="nav-drawer-footer">
+            <a href="/contactus/" class="btn-chamfer btn-cobalt">Contact us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-quick-cta">
+        <a href="/contactus/" class="btn-chamfer btn-primary-light">Assess your project</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" aria-label="Overview">
+      <div class="hero-media-layer" id="hero-laser-surface">
+        <video
+          src="/assets/k0pivnAF72WsHqPBmRZ8JfSrwKE.mp4"
+          poster="/images/DK6U19p545ab0M7UC0gADgBq3g.jpg?width=1920&amp;height=1080"
+          preload="metadata"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+        <div class="hero-scrim"></div>
+
+        <!-- Interactive 532nm CAD Laser Datum Guides -->
+        <div class="mh-laser-overlay" id="mh-laser-overlay" data-active="false" aria-hidden="true">
+          <div class="mh-laser-h" id="mh-laser-h"></div>
+          <div class="mh-laser-v" id="mh-laser-v"></div>
+          <div class="mh-laser-drag-box" id="mh-laser-drag-box"></div>
+          <div class="mh-laser-node" id="mh-laser-node">
+            <div class="mh-laser-ring"></div>
+            <div class="mh-laser-coords" id="mh-laser-coords">X 0000 · Y 0000 mm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="datum-shell hero-body">
+        <div class="hero-copy-stack">
+          <h1 class="hero-title">1:1 Robotic Laser Layout <span class="laser-accent">on the Jobsite.</span></h1>
+          <p class="hero-lead">
+            Project selected BIM and CAD geometry directly onto concrete slabs, walls, and ceilings at full scale — uniting the XR Projector, wireless field software, and in-house Customer Success.
+          </p>
+          <div class="hero-actions">
+            <a href="/contactus/" class="btn-chamfer btn-primary-light">Assess your project</a>
+            <a href="#workflow" class="btn-chamfer btn-cobalt">
+              <span>See how it works</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M19 12l-7 7-7-7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Technical Datum Ledger -->
+      <div class="hero-spec-band">
+        <dl class="datum-shell spec-grid">
+          <div class="spec-item">
+            <dt class="spec-label">Field projection accuracy</dt>
+            <dd class="spec-value">0–3 mm</dd>
+          </div>
+          <div class="spec-item">
+            <dt class="spec-label">Robotic optics</dt>
+            <dd class="spec-value">532 nm · Class 3R</dd>
+          </div>
+          <div class="spec-item">
+            <dt class="spec-label">BIM &amp; CAD workflow</dt>
+            <dd class="spec-value">.DWG &amp; .DXF</dd>
+          </div>
+          <div class="spec-item">
+            <dt class="spec-label">Global field track record</dt>
+            <dd class="spec-value" data-counter="500" data-suffix="+ Projects">500+ Projects</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 2. CONTRACTOR TRUST LEDGER (STATIC ARCHITECTURAL GRID) -->
+    <section class="trust-section surface-light" aria-label="General contractors and field partners">
+      <div class="datum-shell trust-layout" data-reveal>
+        <p class="trust-caption">Deployed on active commercial, industrial, and infrastructure jobsites across 12+ countries</p>
+        <ul class="trust-logos">
+          <li><img src="/images/MDlWDGwGaIbnuGc6lf5EsEzt8g.png?width=690&amp;height=242" alt="VINCI Construction" width="138" height="48" loading="lazy"></li>
+          <li><img src="/images/QAozCZ5WTKq8lMjVCHPXmuwrnk.png?width=690&amp;height=341" alt="Kajima Corporation" width="138" height="68" loading="lazy"></li>
+          <li><img src="/images/qPiPJOaTk2Iea2gANarTs36iGiw.png?width=690&amp;height=256" alt="Fujita Corporation" width="138" height="51" loading="lazy"></li>
+          <li><img src="/images/pfUGjiC61fitz97Xa5VBuX79ivM.png?width=690&amp;height=230" alt="ALEC Engineering and Contracting" width="138" height="46" loading="lazy"></li>
+          <li><img src="/images/ZfbTFBeGhUsaonqZmzXmdw0KwY.png?width=690&amp;height=240" alt="MG Construction" width="138" height="48" loading="lazy"></li>
+          <li><img src="/images/SY3RPEabt09Ro3T3FFGol3Nd9Y.png?width=690&amp;height=228" alt="Haller Wasser" width="138" height="46" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. COMPLETE SOLUTION (ALL 3 PILLARS VISIBLE AT EVERY BREAKPOINT) -->
+    <section class="solution-section surface-light" id="solution" aria-labelledby="solution-heading">
+      <div class="datum-shell">
+        <div class="section-intro" data-reveal>
+          <h2 class="section-heading" id="solution-heading">Turn coordinated BIM and CAD into full-scale visual guidance.</h2>
+          <p class="section-lead">
+            One comprehensive solution built for the field: a proprietary XR robotic laser projector, connected cloud-to-tablet software, and in-house Customer Success engineers who validate readiness on site.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <a href="/datasheet/" class="pillar-link" style="--stagger: 0ms">
+            <div class="pillar-media" data-parallax-media data-shutter style="--stagger: 0ms">
+              <img
+                src="/images/J9ShinvC81wPxjPHLB66ZGo8Zys.webp?width=1920&amp;height=1080"
+                alt="Field operator aligning the Mechasys XR robotic laser projector on a tripod across an active floor slab"
+                width="960"
+                height="540"
+                loading="lazy">
+            </div>
+            <div class="pillar-body" data-reveal style="--stagger: 60ms">
+              <h3 class="pillar-title">Proprietary XR Robotic Laser Projector</h3>
+              <p class="pillar-desc">Displays selected wall tracks, drill points, MEP hangers, and complex curves across floors, walls, and ceilings at 1:1 scale.</p>
+              <span class="pillar-action">
+                <span>Review technical datasheet</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="/how-it-works/" class="pillar-link" style="--stagger: 100ms">
+            <div class="pillar-media" data-parallax-media data-shutter style="--stagger: 100ms">
+              <img
+                src="/images/VWcF4l0eGkOEBV0pzlBHBfwh3fk.jpg?width=800&amp;height=1195"
+                alt="Construction engineer toggling CAD layers wirelessly on a rugged jobsite tablet running Mechasys Layout Field"
+                width="800"
+                height="1195"
+                loading="lazy">
+            </div>
+            <div class="pillar-body" data-reveal style="--stagger: 150ms">
+              <h3 class="pillar-title">Layout Cloud™ &amp; Layout Field Software</h3>
+              <p class="pillar-desc">Prepare DWG and DXF work packages in Layout Cloud, confirm jobsite control points, and control projected views wirelessly from a rugged tablet.</p>
+              <span class="pillar-action">
+                <span>Explore connected workflow</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="/applications/" class="pillar-link" style="--stagger: 200ms">
+            <div class="pillar-media" data-parallax-media data-shutter style="--stagger: 200ms">
+              <img
+                src="/images/BAmMFPxuFpPTWewH3uDRHDtRfmM.webp?width=1920&amp;height=1281"
+                alt="Mechasys Customer Success specialist guiding a multi-trade installation team during on-site field validation"
+                width="960"
+                height="640"
+                loading="lazy">
+            </div>
+            <div class="pillar-body" data-reveal style="--stagger: 240ms">
+              <h3 class="pillar-title">In-House Customer Success Experts</h3>
+              <p class="pillar-desc">Hands-on support for CAD file readiness, instrument setup, crew training, and live Field Validation under your real project conditions.</p>
+              <span class="pillar-action">
+                <span>See jobsite applications</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE 3-STEP CAD-TO-SLAB WORKFLOW (#workflow) -->
+    <section class="workflow-section" id="workflow" aria-labelledby="workflow-heading">
+      <div class="workflow-scroll-runway" id="workflow-runway">
+        <div class="workflow-sticky-pin">
+          <div class="datum-shell">
+            <div class="workflow-header" data-reveal>
+              <h2 class="section-heading" id="workflow-heading">One plan. Three steps.</h2>
+              <p class="section-lead">
+                Scroll or select any stage below to trace how DWG/DXF layers project onto the slab, align every trade, and sync verified field records.
+              </p>
+            </div>
+
+            <div class="workflow-stage-grid">
+              <div class="workflow-steps" role="tablist" aria-label="Projection workflow steps">
+                <button
+                  type="button"
+                  class="step-tab"
+                  role="tab"
+                  id="tab-step-1"
+                  aria-selected="true"
+                  aria-controls="workflow-canvas"
+                  data-step-btn="1"
+                  style="--tab-progress: 1">
+                  <div class="step-tab-top">
+                    <span class="step-num">01</span>
+                    <h3 class="step-name">Visualize</h3>
+                  </div>
+                  <p class="step-desc">Select BIM and CAD layers in Layout Cloud, verify control points, and project full-scale geometry onto the work surface.</p>
+                  <div class="step-meta">Layout Cloud™ → XR Projector 1:1 beam</div>
+                  <div class="step-progress-rail" aria-hidden="true"><div class="step-progress-fill"></div></div>
+                </button>
+
+                <button
+                  type="button"
+                  class="step-tab"
+                  role="tab"
+                  id="tab-step-2"
+                  aria-selected="false"
+                  aria-controls="workflow-canvas"
+                  tabindex="-1"
+                  data-step-btn="2"
+                  style="--tab-progress: 0">
+                  <div class="step-tab-top">
+                    <span class="step-num">02</span>
+                    <h3 class="step-name">Build</h3>
+                  </div>
+                  <p class="step-desc">Give VDC, general contractors, and specialty trades one shared visual reference to check clearances and install without tape-and-chalk rework.</p>
+                  <div class="step-meta">Multi-trade coordination on slabs, walls &amp; ceilings</div>
+                  <div class="step-progress-rail" aria-hidden="true"><div class="step-progress-fill"></div></div>
+                </button>
+
+                <button
+                  type="button"
+                  class="step-tab"
+                  role="tab"
+                  id="tab-step-3"
+                  aria-selected="false"
+                  aria-controls="workflow-canvas"
+                  tabindex="-1"
+                  data-step-btn="3"
+                  style="--tab-progress: 0">
+                  <div class="step-tab-top">
+                    <span class="step-num">03</span>
+                    <h3 class="step-name">Perfect</h3>
+                  </div>
+                  <p class="step-desc">Capture field observations and layout verification on the tablet and bring execution records back into the project workflow.</p>
+                  <div class="step-meta">Layout Field → verified project record</div>
+                  <div class="step-progress-rail" aria-hidden="true"><div class="step-progress-fill"></div></div>
+                </button>
+              </div>
+
+          <div
+            class="blueprint-viewport"
+            id="workflow-canvas"
+            role="tabpanel"
+            aria-labelledby="tab-step-1"
+            data-step="1"
+            data-walls="true"
+            data-mep="true">
+            <div class="blueprint-toolbar">
+              <span class="blueprint-status" id="blueprint-status-label">Active stage: 01 Visualize — Projecting selected CAD layers at 1:1</span>
+              <div class="layer-toggles" role="group" aria-label="Toggle projected CAD layers">
+                <button type="button" class="layer-chip" id="toggle-walls" aria-pressed="true">
+                  <span class="layer-dot" aria-hidden="true"></span>
+                  <span>Interior walls</span>
+                </button>
+                <button type="button" class="layer-chip" id="toggle-mep" aria-pressed="true">
+                  <span class="layer-dot" aria-hidden="true"></span>
+                  <span>MEP layout</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Authentic Mechasys Isometric XR Projector + Slab Blueprint SVG -->
+            <svg class="mechasys-workflow-svg" viewBox="0 0 900 760" role="img" aria-label="Blueprint diagram showing selected CAD layers projected by the XR Projector onto a floor slab, inspected by trade teams, and recorded back to tablet software.">
+              <defs>
+                <marker id="story-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M1 1L7 4 1 7" fill="none" stroke="#00B93B"></path>
+                </marker>
+              </defs>
+
+              <!-- Survey Grid -->
+              <g class="survey-grid">
+                <path d="M0 0V760M60 0V760M120 0V760M180 0V760M240 0V760M300 0V760M360 0V760M420 0V760M480 0V760M540 0V760M600 0V760M660 0V760M720 0V760M780 0V760M840 0V760M900 0V760"></path>
+                <path d="M0 0H900M0 60H900M0 120H900M0 180H900M0 240H900M0 300H900M0 360H900M0 420H900M0 480H900M0 540H900M0 600H900M0 660H900M0 720H900"></path>
+                <path class="survey-tick" d="M54 60H66M60 54V66M54 360H66M60 354V366M54 660H66M60 654V666M834 60H846M840 54V66M834 360H846M840 354V366M834 660H846M840 654V666"></path>
+              </g>
+
+              <!-- Step 1 Group: Source BIM/CAD Panel + Projection Ray -->
+              <g class="stage-group group-step-1" transform="translate(36, 36)">
+                <g class="source-panel">
+                  <rect width="300" height="196" rx="8"></rect>
+                  <text x="20" y="32">Selected BIM / CAD</text>
+                  <path d="M0 48H300"></path>
+                  <g class="input-content">
+                    <text x="20" y="84">Interior walls</text>
+                    <rect class="toggle walls-toggle" x="234" y="66" width="46" height="22" rx="11"></rect>
+                    <circle class="walls-knob" cx="269" cy="77" r="7"></circle>
+                    <text x="20" y="126">MEP layout</text>
+                    <rect class="toggle mep-toggle" x="234" y="108" width="46" height="22" rx="11"></rect>
+                    <circle class="mep-knob" cx="269" cy="119" r="7"></circle>
+                    <path d="M20 150H280"></path>
+                    <text class="small" x="20" y="176">Selected layers → 1:1 projection</text>
+                  </g>
+                </g>
+              </g>
+
+              <!-- Live Floor Slab (Centerpiece across all steps) -->
+              <g class="live-floor" transform="translate(220, 390)">
+                <rect class="floor-slab" x="-22" y="-22" width="444" height="304" rx="4"></rect>
+                <g class="architectural-detail">
+                  <path d="M7 7H393V253H7ZM0 0H400V260H0ZM213 7V95M227 7V95M213 130V253M227 137V253M7 123H63M7 137H63M100 123H176M100 137H176M93 137V192H213M107 137V178H213M227 123H289M227 137H289M326 123H393M326 137H393M93 7V78M107 7V78"></path>
+                  <path d="M63 123V86A37 37 0 0 1 100 123M176 123V86A37 37 0 0 1 213 123M289 123V86A37 37 0 0 1 326 123"></path>
+                  <path d="M-32 0V260M-38 0H-26M-38 130H-26M-38 260H-26M0 286H400M0 280V292M220 280V292M400 280V292"></path>
+                </g>
+                <path class="cad-base" d="M0 0H400V260H0ZM220 0V130H400M0 130H100M100 130V185H220M220 130V260M100 0V78"></path>
+                <path class="wall-selected" d="M0 0H400V260H0ZM220 0V130H400M0 130H100M100 130V185H220M220 130V260M100 0V78"></path>
+                <path class="conduit-selected" d="M32 224H166V94H354M166 94V38"></path>
+
+                <!-- Step 2 Clearance & Multi-Trade Checks on Slab -->
+                <g class="stage-group group-step-2">
+                  <path class="clearance" d="M166 94H190V130H220"></path>
+                  <g class="plan-checks">
+                    <g transform="translate(75 65)"><circle r="12"></circle><path d="m-5 0 4 4 7-9"></path></g>
+                    <g transform="translate(310 70)"><circle r="12"></circle><path d="m-5 0 4 4 7-9"></path></g>
+                    <g transform="translate(290 207)"><circle r="12"></circle><path d="m-5 0 4 4 7-9"></path></g>
+                  </g>
+                </g>
+              </g>
+
+              <!-- XR Projector Hardware on Tripod -->
+              <g class="projector-stage" transform="translate(615, 22) scale(0.76)">
+                <g class="projector-drawing">
+                  <path class="hardware-face side" d="M133 348L169 332Q178 328 186 333L222 347Q236 352 237 367L237 429Q237 442 227 448L185 458L136 439Q124 434 124 421V369Q124 354 133 348Z"></path>
+                  <path class="hardware-face front" d="M172 339Q176 332 186 336L221 349Q230 353 230 367V426Q230 438 220 441L181 427Q171 423 171 411Z"></path>
+                  <path class="hardware-outline" d="M140 351V301Q143 297 146 301V349M220 349V298Q223 294 226 299V351"></path>
+                  <path class="hardware-handle" d="M153 344V320Q153 316 157 314L184 303Q188 301 193 303L213 311Q218 313 218 318V343M160 341V323L187 312L211 321V340"></path>
+                  <path class="hardware-aperture" d="M188 350Q185 349 185 355V391Q185 395 189 397L210 405Q214 407 214 401V366Q214 360 210 358Z"></path>
+                  <ellipse class="hardware-lens" cx="200" cy="374" rx="6" ry="8" transform="rotate(-18 200 374)"></ellipse>
+                  <path class="hardware-panel" d="M151 389L180 399L211 411V434Q211 438 207 437L153 418Q149 417 149 412V393Q149 389 151 389Z"></path>
+                  <ellipse class="hardware-power" cx="229" cy="416" rx="3" ry="4"></ellipse>
+                  <path class="hardware-outline" d="M158 438V453L181 461L205 451V439M172 457V471L184 476L195 471V456"></path>
+                  <path class="hardware-face side" d="M171 468L194 469L204 480L180 489L159 479Z"></path>
+                  <path class="hardware-outline" d="M159 479L122 541L128 544L173 484M194 484L221 543L228 540L204 480M180 489L172 551L180 553L188 487"></path>
+                </g>
+              </g>
+
+              <!-- Laser Projection Rays from XR Projector to Slab -->
+              <g class="stage-group group-step-1">
+                <path class="projection-ray" d="M758 308L620 390"></path>
+                <path class="projection-ray" d="M758 308L260 520"></path>
+                <path class="projection-ray" d="M758 308L574 600"></path>
+              </g>
+
+              <!-- Step 2 Group: Shared Multi-Trade Review -->
+              <g class="stage-group group-step-2">
+                <g class="inspection" transform="translate(290, 26)">
+                  <rect x="85" y="14" width="290" height="198" rx="8"></rect>
+                  <text x="106" y="46">Shared trade clearance</text>
+                  <path class="inspection-walls" d="M108 74H354M108 82H256V190M264 82V190M256 154H354"></path>
+                  <path class="inspection-service" d="M142 186V112H334"></path>
+                  <path class="inspection-dimension" d="M286 116V150M278 116H294M278 150H294"></path>
+                  <text class="small" x="302" y="138">0–3 mm</text>
+                  <circle class="inspection-focus" cx="286" cy="133" r="34"></circle>
+                </g>
+                <g class="team-action" transform="translate(38, 490)">
+                  <rect x="0" y="0" width="154" height="58" rx="6"></rect>
+                  <text x="16" y="25">VDC &amp; Trade Crew</text>
+                  <text class="small" x="16" y="45">5 trades aligned</text>
+                </g>
+              </g>
+
+              <!-- Step 3 Group: Field Record Returned via Tablet -->
+              <g class="stage-group group-step-3">
+                <g class="tablet" transform="translate(652, 468)">
+                  <rect x="0" y="0" width="218" height="222" rx="12"></rect>
+                  <text x="18" y="32">Layout Field Record</text>
+                  <path d="M18 46H200"></path>
+                  <g class="receipt" transform="translate(18, 72)">
+                    <path d="m0 6 5 5 9-11"></path>
+                    <text class="small" x="22" y="10">Control points verified</text>
+                  </g>
+                  <g class="receipt" transform="translate(18, 108)">
+                    <path d="m0 6 5 5 9-11"></path>
+                    <text class="small" x="22" y="10">Field observations logged</text>
+                  </g>
+                  <g class="receipt" transform="translate(18, 144)">
+                    <path d="m0 6 5 5 9-11"></path>
+                    <text class="small" x="22" y="10">Synced to Layout Cloud</text>
+                  </g>
+                  <path class="record-meter" d="M18 194H200"></path>
+                </g>
+                <path class="record-route" d="M620 578H646"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FIELD PROOF CASE STUDIES (ALEC & EGG-TELSA) -->
+    <section class="results-section surface-light" id="results" aria-labelledby="results-heading">
+      <div class="datum-shell">
+        <div class="results-header" data-reveal>
+          <h2 class="section-heading" id="results-heading">Proven across trades and complex geometry.</h2>
+          <a href="/resources/customer-results/" class="btn-chamfer btn-navy">View all case studies</a>
+        </div>
+
+        <div class="case-stack">
+          <!-- Case Study 1: ALEC -->
+          <article class="case-row">
+            <div class="case-media" data-parallax-media data-shutter>
+              <img
+                src="/images/F2elMJtUJMH2i0jLHjjbYFRSRFw.png?width=1466&amp;height=978"
+                alt="ALEC project team coordinating multi-trade room layout with green laser lines at a major integrated resort in the United Arab Emirates"
+                width="1466"
+                height="978"
+                loading="lazy">
+            </div>
+            <div class="case-content" data-reveal style="--stagger: 90ms">
+              <div class="case-metric-row">
+                <span class="case-figure" data-counter="73" data-suffix="%">73%</span>
+                <div class="case-denominator">
+                  <strong>Reduction in layout labour-hours</strong>
+                  <span>22 → 6 labour-hours per room</span>
+                </div>
+              </div>
+              <h3 class="case-title">Five trades working from one shared layout.</h3>
+              <p class="case-summary">
+                At a major integrated resort in the United Arab Emirates, ALEC used the XR Projector to bring five trades into a single coordinated layout workflow, eliminating conflicting chalk lines and manual re-measurement.
+              </p>
+              <div class="case-facts">
+                <span>ALEC · United Arab Emirates</span>
+                <span>Multi-trade fit-out</span>
+              </div>
+              <div class="case-cta">
+                <a href="/resources/customer-results/73-faster-layouts-on-a-major-integrated-resort-in-uae-with-the-xr-projector-19/" class="btn-chamfer btn-cobalt">Read the ALEC story</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case Study 2: Egg-Telsa -->
+          <article class="case-row reverse">
+            <div class="case-media" data-parallax-media data-shutter>
+              <img
+                src="/images/lAVrtKuffJOepVXfcPROOm71ziw.webp?width=1920&amp;height=1080"
+                alt="Egg-Telsa electrical installer marking overhead conduit anchor points projected onto an exposed concrete ceiling in Geneva"
+                width="1920"
+                height="1080"
+                loading="lazy">
+            </div>
+            <div class="case-content" data-reveal style="--stagger: 90ms">
+              <div class="case-metric-row">
+                <span class="case-figure" data-counter="5" data-suffix="×">5×</span>
+                <div class="case-denominator">
+                  <strong>Faster overhead layout</strong>
+                  <span>Exposed architectural concrete ceiling</span>
+                </div>
+              </div>
+              <h3 class="case-title">Complex ceilings. Precisely laid out.</h3>
+              <p class="case-summary">
+                At Caterpillar’s EMEA headquarters in Geneva, Egg-Telsa used the XR Projector to display electrical conduit runs and anchor locations directly onto the overhead slab with full-scale clarity.
+              </p>
+              <div class="case-facts">
+                <span>Egg-Telsa · Geneva, Switzerland</span>
+                <span data-counter="716" data-suffix=" anchor points">716 anchor points</span>
+                <span>295 m² ceiling area</span>
+              </div>
+              <div class="case-cta">
+                <a href="/resources/customer-results/complex-architectural-ceiling-layout-9/" class="btn-chamfer btn-cobalt">Read the Egg-Telsa story</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SYMMETRIC WORK-PACKAGE CONVERSION BAND (#partners) -->
+    <section class="cta-section" id="partners" aria-labelledby="partners-heading">
+      <!-- Authentic Architectural Blueprint SVG -->
+      <svg class="cta-blueprint-bg" id="cta-blueprint-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#00B93B" stroke-width="1.3">
+          <path d="M80 100H1060V180H1360V800H80ZM90 110H1050V190H1350V790H90Z"></path>
+          <path d="M90 390H300M360 390H680M740 390H1020M1080 390H1350M90 400H300M360 400H680M740 400H1020M1080 400H1350M90 510H430M490 510H870M930 510H1350M90 520H430M490 520H870M930 520H1350"></path>
+          <path d="M370 110V390M380 110V390M780 110V390M790 110V390M1100 190V390M1110 190V390M540 520V790M550 520V790M1000 520V790M1010 520V790"></path>
+        </g>
+        <g fill="none" stroke="#66e591" stroke-width="0.8">
+          <path d="M300 390V330A60 60 0 0 1 360 390M680 390V330A60 60 0 0 1 740 390M1020 390V330A60 60 0 0 1 1080 390M430 520V580A60 60 0 0 0 490 520M870 520V580A60 60 0 0 0 930 520"></path>
+        </g>
+      </svg>
+      <div class="cta-scrim"></div>
+
+      <div class="datum-shell">
+        <div class="cta-center" data-reveal>
+          <h2 class="cta-heading" id="partners-heading">Start with one work package.</h2>
+          <p class="cta-copy">
+            Show us what your team needs to lay out or install. We will assess your DWG/DXF scope, jobsite conditions, and the right path to validate the XR Projector in the field.
+          </p>
+          <div class="cta-buttons">
+            <a href="/contactus/" class="btn-chamfer btn-primary-light">Assess your project</a>
+            <a href="/become-a-dealer/" class="btn-chamfer btn-cobalt">Explore a partnership</a>
+          </div>
+          <p class="cta-reassurance">
+            Purchase, rental, and financing options available · 1-year factory warranty · Global distributor network
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. REFINED ENTERPRISE FOOTER (180PX CORPORATE SIGNATURE, COMPACT HEIGHT) -->
+  <footer class="site-footer">
+    <div class="datum-shell">
+      <div class="footer-top-grid">
+        <div>
+          <h2 class="newsletter-title">Stay up to date.</h2>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="newsletter-label">Work email address for product &amp; field updates</label>
+            <div class="newsletter-controls">
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                class="newsletter-input"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required>
+              <button type="submit" class="btn-chamfer btn-primary-light">Subscribe</button>
+            </div>
+            <p class="newsletter-feedback" id="newsletter-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="footer-columns">
+          <div>
+            <h3 class="footer-col-title">Solution</h3>
+            <ul class="footer-links">
+              <li><a href="/how-it-works/">How it works</a></li>
+              <li><a href="/applications/">Applications</a></li>
+              <li><a href="/datasheet/">XR Datasheet</a></li>
+              <li><a href="/pricing/">Buy or Rent</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-col-title">Resources</h3>
+            <ul class="footer-links">
+              <li><a href="/resources/customer-results/">Case Studies</a></li>
+              <li><a href="/resources/insights/">Blog &amp; Insights</a></li>
+              <li><a href="/resources/latest-news/">News &amp; Releases</a></li>
+              <li><a href="/resources/events/">Events &amp; Press Kit</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links">
+              <li><a href="/company/">About Mechasys</a></li>
+              <li><a href="/become-a-dealer/">Become a Partner</a></li>
+              <li><a href="/careers/">Careers</a></li>
+              <li><a href="/contactus/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-brand-row">
+          <a href="/home-v2/" class="footer-signature-logo" aria-label="Mechasys home">
+            <svg viewBox="0 0 1766.8 284.51" aria-hidden="true"><use href="#mechasys-wordmark"></use></svg>
+          </a>
+
+          <ul class="social-list" aria-label="Mechasys social media">
+            <li>
+              <a href="https://www.linkedin.com/company/mechasysofficial/" target="_blank" rel="noopener noreferrer" aria-label="Mechasys on LinkedIn">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.631 13.635H11.262V9.922c0-.885-.018-2.025-1.235-2.025-1.235 0-1.424.964-1.424 1.96v3.778H6.234V6H8.51v1.041h.031c.318-.6 1.091-1.234 2.246-1.234 2.401 0 2.845 1.58 2.845 3.637v4.191ZM3.558 4.955a1.376 1.376 0 1 1 .001-2.752 1.376 1.376 0 0 1-.001 2.752ZM4.746 13.635H2.37V6h2.376v7.635ZM14.817 0H1.181C.528 0 0 .516 0 1.153v13.694C0 15.485.528 16 1.181 16h13.634c.652 0 1.185-.515 1.185-1.153V1.153C16 .516 15.467 0 14.815 0Z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/mechasysofficial" target="_blank" rel="noopener noreferrer" aria-label="Mechasys on Instagram">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.687.057C3.836.097 3.254.233 2.747.432A3.9 3.9 0 0 0 1.331 1.357 3.9 3.9 0 0 0 .411 2.775C.214 3.285.08 3.867.043 4.718.006 5.569-.003 5.843.001 8.016c.004 2.173.014 2.445.055 3.298.041.851.176 1.433.376 1.941.205.526.48.971.925 1.415.401.406.885.72 1.419.92.509.197 1.091.331 1.942.368.852.037 1.126.046 3.298.042 2.172-.004 2.446-.014 3.298-.055.854-.04 1.432-.176 1.94-.375a3.92 3.92 0 0 0 1.416-.925c.406-.401.719-.885.92-1.42.196-.508.33-1.09.367-1.941.037-.853.047-1.127.042-3.299-.004-2.172-.013-2.444-.054-3.298-.04-.853-.176-1.432-.376-1.94a3.9 3.9 0 0 0-.925-1.416A3.9 3.9 0 0 0 13.226.411C12.716.215 12.135.081 11.283.045 10.432.007 10.158-.003 7.985.001 5.812.005 5.54.015 4.687.057Zm.093 14.462c-.78-.034-1.203-.164-1.485-.272a2.48 2.48 0 0 1-.921-.597 2.48 2.48 0 0 1-.6-.919c-.11-.282-.242-.705-.278-1.485-.04-.843-.048-1.096-.054-3.232-.004-2.136.004-2.389.041-3.232.033-.779.164-1.203.272-1.485.144-.374.318-.64.597-.922.257-.266.571-.471.919-.6.282-.11.705-.24 1.485-.278.843-.04 1.096-.048 3.232-.053 2.135-.004 2.388.004 3.233.041.779.034 1.203.163 1.485.272.373.144.64.317.921.597.281.28.454.545.6.919.11.281.241.704.278 1.484.04.844.049 1.097.053 3.232.004 2.136-.004 2.389-.04 3.232-.034.78-.164 1.204-.272 1.487-.144.373-.318.64-.598.92-.257.267-.571.472-.918.6-.282.11-.706.241-1.484.279-.844.04-1.097.048-3.234.052-2.136.005-2.388-.004-3.232-.04ZM11.302 3.725a.96.96 0 1 0 1.92-.004.96.96 0 0 0-1.92.004ZM3.893 8.009a4.108 4.108 0 1 0 8.215-.016 4.108 4.108 0 0 0-8.215.016Zm1.441-.003a2.667 2.667 0 1 1 5.333-.011 2.667 2.667 0 0 1-5.333.011Z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/mechasysofficial" target="_blank" rel="noopener noreferrer" aria-label="Mechasys on Facebook">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.067 15.765v-5.32H4.418V8h1.649V6.947c0-2.724 1.232-3.986 3.906-3.986.267 0 .636.028.978.069.256.027.51.07.761.13v2.217a9.4 9.4 0 0 0-.924-.03c-.471 0-.839.064-1.117.206-.186.094-.342.237-.452.414-.172.28-.25.664-.25 1.168V8h2.613l-.257 1.402-.192 1.043H8.969v5.496C12.931 15.463 16 12.09 16 8c0-4.418-3.582-8-8-8S0 3.582 0 8c0 3.752 2.583 6.9 6.067 7.765Z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@mechasysofficial" target="_blank" rel="noopener noreferrer" aria-label="Mechasys on YouTube">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M15.665 4.124a2.01 2.01 0 0 0-1.414-1.424C13.003 2.363 8 2.363 8 2.363s-5.003 0-6.251.337A2.01 2.01 0 0 0 .335 4.124C0 5.38 0 8 0 8s0 2.62.335 3.876a2.01 2.01 0 0 0 1.414 1.424c1.248.336 6.251.336 6.251.336s5.003 0 6.251-.336a2.01 2.01 0 0 0 1.415-1.424C16 10.62 16 8 16 8s0-2.62-.335-3.876ZM6.363 10.378V5.621L10.545 8l-4.182 2.378Z"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/mechasys" target="_blank" rel="noopener noreferrer" aria-label="Mechasys on X">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.489 6.775 15.318 0h-1.381L8.876 5.883 4.834 0H.172l6.112 8.895L.172 16h1.381l5.344-6.212L11.166 16h4.662L9.489 6.775Zm-1.891 2.199-.619-.886L2.051 1.04h2.121l3.977 5.688.619.886 5.169 7.393h-2.121L7.598 8.974Z"></path></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-legal-row">
+          <span>© 2026 Mechasys. All rights reserved.</span>
+          <ul class="legal-links">
+            <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+            <li><a href="/legal/terms/">Sales Terms</a></li>
+            <li><a href="/legal/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="/legal/eula/">EULA</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Viewport Bottom Laser Progress Indicator -->
+  <div class="laser-scroll-bar" aria-hidden="true">
+    <div class="laser-scroll-fill" id="laser-scroll-fill"></div>
+  </div>
+
+  <script id="mechasys-home-v2-engine">
+    (function () {
+      var prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* 1. Accessible Click-Only Navigation Drawer */
+      var menuToggle = document.getElementById("menu-toggle");
+      var menuLabel = document.getElementById("menu-toggle-label");
+      var navDrawer = document.getElementById("nav-drawer");
+      var navBackdrop = document.getElementById("nav-backdrop");
+      var siteHeader = document.getElementById("site-header");
+
+      function setMenuOpen(isOpen, restoreFocus) {
+        if (!menuToggle || !navDrawer || !navBackdrop) return;
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if (menuLabel) menuLabel.textContent = isOpen ? "Close" : "Menu";
+        navDrawer.setAttribute("data-open", isOpen ? "true" : "false");
+        navBackdrop.setAttribute("data-open", isOpen ? "true" : "false");
+
+        if (isOpen) {
+          navDrawer.removeAttribute("inert");
+          var firstLink = navDrawer.querySelector("a");
+          if (firstLink) firstLink.focus({ preventScroll: true });
+        } else {
+          navDrawer.setAttribute("inert", "");
+          if (restoreFocus) menuToggle.focus({ preventScroll: true });
+        }
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", function () {
+          var expanded = menuToggle.getAttribute("aria-expanded") === "true";
+          setMenuOpen(!expanded, false);
+        });
+      }
+
+      if (navBackdrop) {
+        navBackdrop.addEventListener("click", function () {
+          setMenuOpen(false, false);
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && menuToggle && menuToggle.getAttribute("aria-expanded") === "true") {
+          e.preventDefault();
+          setMenuOpen(false, true);
+        }
+      });
+
+      /* 2. Interactive 532nm Hero CAD Laser Reticle & Drag Box */
+      var heroSurface = document.getElementById("hero-laser-surface");
+      var laserOverlay = document.getElementById("mh-laser-overlay");
+      var laserH = document.getElementById("mh-laser-h");
+      var laserV = document.getElementById("mh-laser-v");
+      var laserNode = document.getElementById("mh-laser-node");
+      var laserCoords = document.getElementById("mh-laser-coords");
+      var dragBox = document.getElementById("mh-laser-drag-box");
+
+      if (heroSurface && laserOverlay && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
+        var dragOrigin = null;
+
+        heroSurface.addEventListener("pointerenter", function () {
+          laserOverlay.setAttribute("data-active", "true");
+        });
+
+        heroSurface.addEventListener("pointerleave", function () {
+          laserOverlay.setAttribute("data-active", "false");
+          dragOrigin = null;
+          if (dragBox) dragBox.style.display = "none";
+        });
+
+        heroSurface.addEventListener("pointerdown", function (e) {
+          var rect = heroSurface.getBoundingClientRect();
+          dragOrigin = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+          if (dragBox) {
+            dragBox.style.display = "block";
+            dragBox.style.left = dragOrigin.x + "px";
+            dragBox.style.top = dragOrigin.y + "px";
+            dragBox.style.width = "0px";
+            dragBox.style.height = "0px";
+          }
+        });
+
+        window.addEventListener("pointerup", function () {
+          dragOrigin = null;
+          if (dragBox) dragBox.style.display = "none";
+        });
+
+        heroSurface.addEventListener("pointermove", function (e) {
+          var rect = heroSurface.getBoundingClientRect();
+          var x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+          var y = Math.max(0, Math.min(rect.height, e.clientY - rect.top));
+
+          laserH.style.transform = "translate3d(0," + y.toFixed(1) + "px,0)";
+          laserV.style.transform = "translate3d(" + x.toFixed(1) + "px,0,0)";
+          laserNode.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)";
+
+          var mmX = Math.round(x * 3.5);
+          var mmY = Math.round(y * 3.5);
+          if (dragOrigin && dragBox) {
+            var left = Math.min(dragOrigin.x, x);
+            var top = Math.min(dragOrigin.y, y);
+            var w = Math.abs(x - dragOrigin.x);
+            var h = Math.abs(y - dragOrigin.y);
+            dragBox.style.left = left + "px";
+            dragBox.style.top = top + "px";
+            dragBox.style.width = w + "px";
+            dragBox.style.height = h + "px";
+            laserCoords.textContent = "Δ " + Math.round(w * 3.5) + " × " + Math.round(h * 3.5) + " mm";
+          } else {
+            laserCoords.textContent = "X " + String(mmX).padStart(4, "0") + " · Y " + String(mmY).padStart(4, "0") + " mm";
+          }
+        });
+      }
+
+      /* 3. Interactive & Scroll-Driven 3-Step Workflow + Live SVG Vector Tracing */
+      var stepButtons = Array.prototype.slice.call(document.querySelectorAll("[data-step-btn]"));
+      var workflowSection = document.getElementById("workflow");
+      var workflowRunway = document.getElementById("workflow-runway");
+      var workflowCanvas = document.getElementById("workflow-canvas");
+      var statusLabel = document.getElementById("blueprint-status-label");
+      var currentStep = "1";
+      var stepCaptions = {
+        "1": "Active stage: 01 Visualize — Projecting selected CAD layers at 1:1",
+        "2": "Active stage: 02 Build — Multi-trade clearance review (0–3 mm)",
+        "3": "Active stage: 03 Perfect — Syncing field observations to Layout Cloud"
+      };
+
+      function prepareTracePaths(selectorList) {
+        var records = [];
+        if (prefersReducedMotion || !workflowCanvas) return records;
+        selectorList.forEach(function (sel) {
+          var nodes = workflowCanvas.querySelectorAll(sel);
+          for (var i = 0; i < nodes.length; i++) {
+            var p = nodes[i];
+            if (typeof p.getTotalLength === "function") {
+              try {
+                var len = p.getTotalLength();
+                if (len > 0) {
+                  p.style.strokeDasharray = len.toFixed(1);
+                  records.push({ el: p, len: len });
+                }
+              } catch (err) {}
+            }
+          }
+        });
+        return records;
+      }
+
+      var slabTracePaths = prepareTracePaths([".wall-selected", ".conduit-selected"]);
+      var step2TracePaths = prepareTracePaths([".clearance", ".inspection-service"]);
+      var step3TracePaths = prepareTracePaths([".record-route", ".record-meter"]);
+
+      function setTraceProgress(records, ratio) {
+        var clamped = Math.max(0, Math.min(1, ratio));
+        for (var i = 0; i < records.length; i++) {
+          records[i].el.style.strokeDashoffset = ((1 - clamped) * records[i].len).toFixed(1);
+        }
+      }
+
+      function activateStep(step, moveFocus) {
+        if (!workflowCanvas) return;
+        currentStep = step;
+        workflowCanvas.setAttribute("data-step", step);
+        workflowCanvas.setAttribute("aria-labelledby", "tab-step-" + step);
+        if (statusLabel && stepCaptions[step]) {
+          statusLabel.textContent = stepCaptions[step];
+        }
+        stepButtons.forEach(function (btn) {
+          var active = btn.getAttribute("data-step-btn") === step;
+          btn.setAttribute("aria-selected", active ? "true" : "false");
+          btn.setAttribute("tabindex", active ? "0" : "-1");
+          if (active && moveFocus) btn.focus();
+        });
+      }
+
+      function jumpToStep(step, moveFocus) {
+        if (!prefersReducedMotion && workflowRunway && window.innerWidth >= 1025) {
+          var rect = workflowRunway.getBoundingClientRect();
+          var runwayTop = (window.scrollY || document.documentElement.scrollTop || 0) + rect.top;
+          var travel = Math.max(0, workflowRunway.offsetHeight - window.innerHeight);
+          var targetRatio = step === "1" ? 0.08 : (step === "2" ? 0.50 : 0.88);
+          window.scrollTo({ top: runwayTop + travel * targetRatio, behavior: "smooth" });
+        } else {
+          setTraceProgress(slabTracePaths, 1);
+          setTraceProgress(step2TracePaths, 1);
+          setTraceProgress(step3TracePaths, 1);
+          stepButtons.forEach(function (b) {
+            b.style.setProperty("--tab-progress", b.getAttribute("data-step-btn") <= step ? "1" : "0");
+          });
+        }
+        activateStep(step, moveFocus);
+      }
+
+      stepButtons.forEach(function (btn, idx) {
+        btn.addEventListener("click", function () {
+          jumpToStep(btn.getAttribute("data-step-btn"), false);
+        });
+        btn.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+            e.preventDefault();
+            var next = stepButtons[(idx + 1) % stepButtons.length];
+            jumpToStep(next.getAttribute("data-step-btn"), true);
+          } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            var prev = stepButtons[(idx - 1 + stepButtons.length) % stepButtons.length];
+            jumpToStep(prev.getAttribute("data-step-btn"), true);
+          }
+        });
+      });
+
+      function bindLayerToggle(btnId, attrName) {
+        var btn = document.getElementById(btnId);
+        if (!btn || !workflowCanvas) return;
+        btn.addEventListener("click", function () {
+          var nextState = btn.getAttribute("aria-pressed") !== "true";
+          btn.setAttribute("aria-pressed", nextState ? "true" : "false");
+          workflowCanvas.setAttribute(attrName, nextState ? "true" : "false");
+        });
+      }
+      bindLayerToggle("toggle-walls", "data-walls");
+      bindLayerToggle("toggle-mep", "data-mep");
+
+      /* 4. Accessible Newsletter Form Validation */
+      var newsletterForm = document.getElementById("newsletter-form");
+      var newsletterEmail = document.getElementById("newsletter-email");
+      var newsletterFeedback = document.getElementById("newsletter-feedback");
+
+      if (newsletterForm && newsletterEmail && newsletterFeedback) {
+        newsletterForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var val = newsletterEmail.value.trim();
+          if (!val || val.indexOf("@") === -1 || val.indexOf(".") === -1) {
+            newsletterFeedback.textContent = "Please enter a valid work email address (for example, name@company.com).";
+            newsletterEmail.focus();
+            return;
+          }
+          newsletterFeedback.textContent = "Thank you — your email has been registered for Mechasys field updates.";
+          newsletterForm.reset();
+        });
+      }
+
+      /* 5. IntersectionObserver Unveils, Laser Datum Lines & Metric Calibration */
+      function animateCounter(el) {
+        if (prefersReducedMotion || el.getAttribute("data-counted") === "true") return;
+        el.setAttribute("data-counted", "true");
+        var target = parseInt(el.getAttribute("data-counter"), 10);
+        var suffix = el.getAttribute("data-suffix") || "";
+        if (isNaN(target)) return;
+        var startVal = target <= 10 ? 1 : 0;
+        var duration = 680;
+        var startTime = performance.now();
+
+        function stepFrame(now) {
+          var t = Math.min(1, (now - startTime) / duration);
+          var eased = 1 - Math.pow(1 - t, 4);
+          var current = Math.round(startVal + (target - startVal) * eased);
+          el.textContent = current + suffix;
+          if (t < 1) {
+            window.requestAnimationFrame(stepFrame);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+        window.requestAnimationFrame(stepFrame);
+      }
+
+      var observedNodes = Array.prototype.slice.call(
+        document.querySelectorAll("[data-reveal], [data-shutter], .pillar-link, .case-row, [data-counter]")
+      );
+
+      if (!prefersReducedMotion && "IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var node = entry.target;
+            if (node.hasAttribute("data-counter")) {
+              animateCounter(node);
+            } else {
+              node.setAttribute("data-inview", "true");
+            }
+            revealObserver.unobserve(node);
+          });
+        }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+
+        observedNodes.forEach(function (node) {
+          revealObserver.observe(node);
+        });
+      } else {
+        observedNodes.forEach(function (node) {
+          node.setAttribute("data-inview", "true");
+        });
+      }
+
+      /* Prepare CTA Blueprint Floorplan Paths for Scroll-Driven Tracing */
+      var ctaSection = document.getElementById("partners");
+      var ctaSvg = document.getElementById("cta-blueprint-svg");
+      var ctaTracePaths = [];
+      if (!prefersReducedMotion && ctaSvg) {
+        var rawPaths = ctaSvg.querySelectorAll("path");
+        for (var pIdx = 0; pIdx < rawPaths.length; pIdx++) {
+          var cp = rawPaths[pIdx];
+          if (typeof cp.getTotalLength === "function") {
+            try {
+              var cLen = cp.getTotalLength();
+              if (cLen > 0) {
+                cp.style.strokeDasharray = cLen.toFixed(1);
+                ctaTracePaths.push({ el: cp, len: cLen });
+              }
+            } catch (err2) {}
+          }
+        }
+      }
+
+      /* 6. Unified 120Hz Scroll Choreography Engine */
+      var scrollFill = document.getElementById("laser-scroll-fill");
+      var parallaxContainers = Array.prototype.slice.call(document.querySelectorAll("[data-parallax-media]"));
+      var caseRows = Array.prototype.slice.call(document.querySelectorAll(".case-row"));
+      var ticking = false;
+
+      function updateOnScroll() {
+        var y = window.scrollY || document.documentElement.scrollTop || 0;
+        var vh = window.innerHeight || 800;
+
+        document.documentElement.style.setProperty("--scroll-y", Math.min(y, 900) + "px");
+        var heroProg = Math.min(1, Math.max(0, y / Math.max(480, vh * 0.82)));
+        document.documentElement.style.setProperty("--hero-progress", heroProg.toFixed(3));
+
+        if (siteHeader) {
+          siteHeader.setAttribute("data-scrolled", y > 80 ? "true" : "false");
+        }
+
+        if (scrollFill) {
+          var maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
+          var ratio = Math.min(1, Math.max(0, y / maxScroll));
+          scrollFill.style.transform = "scaleX(" + ratio.toFixed(4) + ")";
+        }
+
+        if (!prefersReducedMotion) {
+          var mid = vh * 0.5;
+
+          /* Photo Depth Parallax */
+          for (var i = 0; i < parallaxContainers.length; i++) {
+            var box = parallaxContainers[i];
+            var rect = box.getBoundingClientRect();
+            if (rect.bottom < -120 || rect.top > vh + 120) continue;
+            var img = box.querySelector("img");
+            if (!img) continue;
+            var norm = Math.max(-1, Math.min(1, (mid - (rect.top + rect.height * 0.5)) / mid));
+            img.style.setProperty("--photo-drift", (norm * 34).toFixed(1) + "px");
+          }
+
+          /* Opposing Copy Drift in Case Studies */
+          for (var c = 0; c < caseRows.length; c++) {
+            var row = caseRows[c];
+            var rRect = row.getBoundingClientRect();
+            if (rRect.bottom < -120 || rRect.top > vh + 120) continue;
+            var copyCol = row.querySelector(".case-content");
+            if (!copyCol) continue;
+            var cNorm = Math.max(-1, Math.min(1, (mid - (rRect.top + rRect.height * 0.5)) / mid));
+            copyCol.style.setProperty("--copy-drift", (-cNorm * 14).toFixed(1) + "px");
+          }
+
+          /* Scroll-Driven 3-Step Workflow & Live Laser Stroke Tracing */
+          if (workflowSection && workflowRunway) {
+            var wRect = workflowRunway.getBoundingClientRect();
+            var isVisible = wRect.bottom > 0 && wRect.top < vh;
+            workflowSection.setAttribute("data-active-zone", isVisible ? "true" : "false");
+
+            if (window.innerWidth >= 1025 && wRect.height > vh) {
+              var travel = Math.max(1, wRect.height - vh);
+              var wProg = Math.max(0, Math.min(1, -wRect.top / travel));
+
+              var p1 = Math.max(0, Math.min(1, wProg / 0.34));
+              var p2 = Math.max(0, Math.min(1, (wProg - 0.34) / 0.33));
+              var p3 = Math.max(0, Math.min(1, (wProg - 0.67) / 0.33));
+
+              if (stepButtons[0]) stepButtons[0].style.setProperty("--tab-progress", p1.toFixed(3));
+              if (stepButtons[1]) stepButtons[1].style.setProperty("--tab-progress", p2.toFixed(3));
+              if (stepButtons[2]) stepButtons[2].style.setProperty("--tab-progress", p3.toFixed(3));
+
+              /* Progressive CAD line projection onto slab */
+              var slabDraw = Math.max(0.15, Math.min(1, (wRect.top < vh * 0.75) ? Math.min(1, (vh * 0.85 - wRect.top) / (vh * 0.75)) : 0.15));
+              setTraceProgress(slabTracePaths, Math.max(slabDraw, p1));
+              setTraceProgress(step2TracePaths, p2);
+              setTraceProgress(step3TracePaths, p3);
+
+              var targetStep = wProg < 0.34 ? "1" : (wProg < 0.67 ? "2" : "3");
+              if (targetStep !== currentStep) {
+                activateStep(targetStep, false);
+              }
+            } else if (isVisible) {
+              var mDraw = Math.max(0, Math.min(1, (vh - wRect.top) / (vh * 0.7)));
+              setTraceProgress(slabTracePaths, mDraw);
+              setTraceProgress(step2TracePaths, 1);
+              setTraceProgress(step3TracePaths, 1);
+            }
+          }
+
+          /* Scroll-Driven Floorplan Tracing in #partners Conversion Band */
+          if (ctaSection && ctaTracePaths.length) {
+            var ctaRect = ctaSection.getBoundingClientRect();
+            if (ctaRect.bottom > 0 && ctaRect.top < vh) {
+              var ctaProg = Math.max(0, Math.min(1, (vh - ctaRect.top) / (vh * 0.85)));
+              setTraceProgress(ctaTracePaths, ctaProg);
+              ctaSection.style.setProperty("--cta-blueprint-opacity", (0.06 + ctaProg * 0.16).toFixed(3));
+            }
+          }
+        }
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(updateOnScroll);
+        }
+      }, { passive: true });
+
+      updateOnScroll();
+    })();
+  </script>
+</body>
+</html>

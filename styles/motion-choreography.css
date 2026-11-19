@@ -1,0 +1,400 @@
+/* ============================================================
+   MECHASYS MOTION CHOREOGRAPHY
+   Optical 532nm laser reveals, hero parallax, aperture seams,
+   kinetic hardware stage, workflow runway & reduced-motion guards.
+   ============================================================ */
+
+/* 1. HERO ENTRY & DEPTH RECEDE */
+.hero-line {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.04em;
+  padding-bottom: 0.08em;
+  margin-top: -0.04em;
+  margin-bottom: -0.08em;
+}
+
+.hero-line-inner {
+  display: block;
+}
+
+.hero-datum-rule {
+  transform-origin: 0 50%;
+}
+
+@keyframes heroLineReveal {
+  from {
+    opacity: 0.01;
+    transform: translate3d(0, 108%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroDatumRuleDraw {
+  from {
+    opacity: 0.01;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes heroCopyStep {
+  from {
+    opacity: 0.01;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+html.js-motion .hero-line-inner {
+  animation: heroLineReveal 0.84s var(--ease-out-expo) both;
+}
+
+html.js-motion .hero-line:nth-child(2) .hero-line-inner {
+  animation-delay: 90ms;
+}
+
+html.js-motion .hero-datum-rule {
+  animation: heroDatumRuleDraw 0.74s var(--ease-out-expo) 160ms both;
+}
+
+html.js-motion .hero-substatement {
+  animation: heroCopyStep 0.72s var(--ease-out-expo) 220ms both;
+}
+
+html.js-motion .hero-lead {
+  animation: heroCopyStep 0.72s var(--ease-out-expo) 290ms both;
+}
+
+html.js-motion .hero-actions {
+  animation: heroCopyStep 0.72s var(--ease-out-expo) 350ms both;
+}
+
+.hero-media-layer video {
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * 0.24), 0) scale(calc(1.04 + var(--hero-progress, 0) * 0.08));
+  will-change: transform;
+}
+
+.hero-copy-stack {
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * -0.15), 0);
+  opacity: calc(1 - var(--hero-progress, 0) * 0.88);
+  filter: blur(calc(var(--hero-progress, 0) * 2.5px));
+  will-change: transform, opacity, filter;
+}
+
+/* 2. FOLD-TO-FOLD DATUM SEAMS & ARCHITECTURAL APERTURES */
+[data-fold-seam] {
+  position: relative;
+}
+
+[data-fold-seam]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--laser-500) 20%,
+    var(--laser-300) 50%,
+    var(--cobalt-600) 86%,
+    transparent 100%
+  );
+  transform-origin: 0 50%;
+  transform: scaleX(1);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 4;
+}
+
+html.js-motion [data-fold-seam]::after {
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    transform 0.92s var(--ease-out-expo),
+    opacity 0.48s ease;
+}
+
+html.js-motion [data-fold-seam][data-inview="true"]::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+@media (min-width: 1025px) {
+  html.js-motion [data-fold-aperture] {
+    --fold-inset-x: calc((1 - var(--fold-progress, 1)) * 28px);
+    --fold-chamfer: calc((1 - var(--fold-progress, 1)) * 24px);
+    clip-path: polygon(
+      calc(var(--fold-inset-x) + var(--fold-chamfer)) 0,
+      calc(100% - var(--fold-inset-x) - var(--fold-chamfer)) 0,
+      calc(100% - var(--fold-inset-x)) var(--fold-chamfer),
+      calc(100% - var(--fold-inset-x)) 100%,
+      var(--fold-inset-x) 100%,
+      var(--fold-inset-x) var(--fold-chamfer)
+    );
+  }
+}
+
+/* 3. KINETIC HARDWARE STAGE */
+#hw-reticle-svg {
+  transform: rotate(var(--hw-reticle-deg, 0deg)) scale(calc(0.95 + var(--hw-scale, 0.05)));
+  will-change: transform;
+}
+
+#hw-parallax-figure {
+  transform: translate3d(0, var(--hw-drift, 0px), 0);
+  will-change: transform;
+}
+
+/* 4. DRAWER LINK STAGGER */
+html.js-motion .dock-drawer .drawer-links li {
+  opacity: 0;
+  transform: translate3d(-10px, 0, 0);
+  transition:
+    opacity 0.34s var(--ease-out-expo),
+    transform 0.38s var(--ease-out-expo);
+  transition-delay: 0ms;
+}
+
+html.js-motion .dock-drawer[data-open="true"] .drawer-links li {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: calc(var(--item-idx, 0) * 35ms);
+}
+
+/* 5. LASER BOUNDARY HAIRLINES, REVEALS & SHUTTERS */
+.pillar-link,
+.app-plate,
+.case-row {
+  position: relative;
+}
+
+.pillar-link::before,
+.app-plate::before,
+.case-row::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--laser-500) 0%, var(--cobalt-600) 100%);
+  transform-origin: 0 50%;
+  transform: scaleX(1);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+html.js-motion .pillar-link::before,
+html.js-motion .app-plate::before,
+html.js-motion .case-row::before {
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    transform 0.72s var(--ease-out-expo) var(--stagger, 0ms),
+    opacity 0.4s ease var(--stagger, 0ms);
+}
+
+html.js-motion .pillar-link[data-inview="true"]::before,
+html.js-motion .app-plate[data-inview="true"]::before,
+html.js-motion .case-row[data-inview="true"]::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+html.js-motion [data-reveal] {
+  opacity: 0.01;
+  translate: 0 22px;
+  transition:
+    opacity 0.62s var(--ease-out-expo) var(--stagger, 0ms),
+    translate 0.62s var(--ease-out-expo) var(--stagger, 0ms);
+}
+
+html.js-motion [data-reveal][data-inview="true"] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+html.js-motion [data-shutter] {
+  opacity: 0.01;
+  clip-path: polygon(18px 20%, 100% 20%, 100% 100%, calc(100% - 18px) 100%, 0 100%, 0 calc(20% + 18px));
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 0.62s var(--ease-out-expo) var(--stagger, 0ms),
+    clip-path 0.78s var(--ease-out-expo) var(--stagger, 0ms),
+    transform 0.74s var(--ease-out-expo) var(--stagger, 0ms);
+}
+
+html.js-motion [data-shutter][data-inview="true"] {
+  opacity: 1;
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  transform: translate3d(0, 0, 0);
+}
+
+/* 6. COUNTER-DIRECTIONAL PHOTO & COPY PARALLAX */
+.pillar-media img,
+.app-media img,
+.case-media img {
+  transform: scale(1.1) translate3d(0, var(--photo-drift, 0px), 0);
+  will-change: transform;
+}
+
+.pillar-link:hover .pillar-media img {
+  transform: scale(1.14) translate3d(0, var(--photo-drift, 0px), 0);
+}
+
+/* 7. STICKY WORKFLOW RUNWAY, RETICLE SPIN & CTA BLUEPRINT */
+@media (min-width: 1025px) {
+  .workflow-scroll-runway {
+    min-height: 210vh;
+    position: relative;
+  }
+
+  .workflow-sticky-pin {
+    position: sticky;
+    top: 64px;
+  }
+}
+
+.step-progress-fill {
+  transform-origin: 0 50%;
+  transform: scaleX(var(--tab-progress, 0));
+  transition: transform 0.12s linear;
+}
+
+@keyframes laserReticleSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mechasys-workflow-svg .inspection-focus {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: laserReticleSpin 14s linear infinite;
+  animation-play-state: paused;
+}
+
+.workflow-section[data-active-zone="true"] .mechasys-workflow-svg .inspection-focus {
+  animation-play-state: running;
+}
+
+.cta-blueprint-bg {
+  opacity: var(--cta-blueprint-opacity, 0.14);
+  transition: opacity 0.2s linear;
+}
+
+/* 8. BOTTOM PRECISION LASER SCROLL PROGRESS BAR */
+.laser-scroll-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 610;
+  pointer-events: none;
+  background-color: rgba(6, 11, 32, 0.25);
+}
+
+.laser-scroll-fill {
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--cobalt-600) 0%, var(--laser-500) 85%, var(--laser-300) 100%);
+  will-change: transform;
+}
+
+/* 9. COMPLETE REDUCED MOTION FALLBACK */
+@media (prefers-reduced-motion: reduce) {
+  .hero-line-inner,
+  .hero-datum-rule,
+  .hero-substatement,
+  .hero-lead,
+  .hero-actions,
+  .hero-copy-stack,
+  [data-reveal],
+  [data-shutter],
+  .dock-drawer .drawer-links li {
+    opacity: 1 !important;
+  }
+
+  .hero-line-inner,
+  .hero-datum-rule,
+  .hero-substatement,
+  .hero-lead,
+  .hero-actions,
+  .hero-media-layer video,
+  .hero-copy-stack,
+  #hw-reticle-svg,
+  #hw-parallax-figure,
+  .hw-stage-figure,
+  .pillar-media img,
+  .app-media img,
+  .case-media img,
+  .case-content,
+  [data-reveal],
+  [data-shutter],
+  .dock-drawer .drawer-links li {
+    animation: none !important;
+    transform: none !important;
+    translate: none !important;
+    filter: none !important;
+    transition: none !important;
+    transition-delay: 0ms !important;
+    will-change: auto !important;
+  }
+
+  [data-fold-aperture],
+  [data-shutter] {
+    clip-path: none !important;
+  }
+
+  [data-fold-seam]::after,
+  .pillar-link::before,
+  .app-plate::before,
+  .case-row::before {
+    transform: scaleX(1) !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .dock-drawer,
+  .dock-backdrop,
+  .dock-spy-indicator,
+  .step-progress-fill,
+  .cta-blueprint-bg,
+  .laser-scroll-fill {
+    transition: none !important;
+  }
+
+  .laser-scroll-fill {
+    transform: none !important;
+  }
+
+  .workflow-scroll-runway {
+    min-height: auto !important;
+  }
+
+  .workflow-sticky-pin {
+    position: static !important;
+  }
+
+  .mechasys-workflow-svg .inspection-focus {
+    animation: none !important;
+  }
+}

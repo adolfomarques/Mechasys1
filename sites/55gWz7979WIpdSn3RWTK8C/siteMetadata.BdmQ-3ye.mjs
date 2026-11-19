@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.Bi-D_2cA.mjs";function t(e,t){return{description:`Robotic Laser Projection in Construction Layout | Mechasys`,robots:`max-image-preview:large`,title:`Mechasys`}}function n(){return(n=e((()=>{})))()}export{t as n,n as t};
+//# sourceMappingURL=siteMetadata.BdmQ-3ye.mjs.map

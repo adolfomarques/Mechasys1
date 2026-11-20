@@ -394,7 +394,8 @@ html.js-motion [data-shutter][data-inview="true"] {
     position: static !important;
   }
 
-  .mechasys-workflow-svg .inspection-focus {
+  .mechasys-workflow-svg .inspection-focus,
+  .hw-pin[aria-pressed="true"] .hw-pin-badge::before {
     animation: none !important;
   }
 }

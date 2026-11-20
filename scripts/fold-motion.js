@@ -11,6 +11,9 @@
        ------------------------------------------------------------ */
     var dockMenuBtn = document.getElementById("dock-menu-toggle");
     var dockMenuLabel = document.getElementById("dock-menu-label");
+    var dockMenuTooltip = document.getElementById("dock-menu-tooltip");
+    var crestMenuBtn = document.getElementById("crest-menu-toggle");
+    var crestMenuLabel = document.getElementById("crest-menu-label");
     var mobileMenuBtn = document.getElementById("mobile-menu-toggle");
     var mobileMenuLabel = document.getElementById("mobile-menu-label");
     var drawerCloseBtn = document.getElementById("drawer-close-btn");
@@ -40,8 +43,11 @@
       dockBackdrop.setAttribute("data-open", isOpen ? "true" : "false");
 
       if (dockMenuBtn) dockMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      if (crestMenuBtn) crestMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       if (dockMenuLabel) dockMenuLabel.textContent = isOpen ? "Close" : "Menu";
+      if (dockMenuTooltip) dockMenuTooltip.textContent = isOpen ? "Close menu" : "All pages";
+      if (crestMenuLabel) crestMenuLabel.textContent = isOpen ? "Close" : "Menu";
       if (mobileMenuLabel) mobileMenuLabel.textContent = isOpen ? "Close" : "Menu";
 
       if (isOpen) {
@@ -78,6 +84,11 @@
     if (dockMenuBtn) {
       dockMenuBtn.addEventListener("click", function () {
         toggleDrawer(dockMenuBtn);
+      });
+    }
+    if (crestMenuBtn) {
+      crestMenuBtn.addEventListener("click", function () {
+        toggleDrawer(crestMenuBtn);
       });
     }
     if (mobileMenuBtn) {
@@ -125,6 +136,32 @@
        ------------------------------------------------------------ */
     var hwTabs = Array.prototype.slice.call(document.querySelectorAll("[data-hw-tab]"));
     var hwPins = Array.prototype.slice.call(document.querySelectorAll("[data-hw-pin]"));
+    var hwReadout = document.getElementById("hw-readout");
+    var hwReadoutCode = document.getElementById("hw-readout-code");
+    var hwReadoutTitle = document.getElementById("hw-readout-title");
+    var hwReadoutSpec = document.getElementById("hw-readout-spec");
+    var hwReadoutData = {
+      "1": {
+        code: "01",
+        title: "Robotic Laser Optics",
+        spec: "1:1 full-scale projection · Millimetric calibration"
+      },
+      "2": {
+        code: "02",
+        title: "Anodized Top Carry Frame",
+        spec: "Machined aluminum handle · Sealed chassis for one-operator setup"
+      },
+      "3": {
+        code: "03",
+        title: "Wireless Layout Field Control",
+        spec: "Rugged jobsite tablet · Live DWG/DXF layer control and observations"
+      },
+      "4": {
+        code: "04",
+        title: "Survey Tribrach & Tripod Mount",
+        spec: "Standard survey tripod compatibility · Rapid stationing to control points"
+      }
+    };
 
     function activateHardwarePart(partId, focusTarget) {
       if (!partId) return;
@@ -143,6 +180,13 @@
           pin.focus();
         }
       });
+      var info = hwReadoutData[partId];
+      if (hwReadout && info) {
+        hwReadout.setAttribute("aria-labelledby", "hw-tab-" + partId);
+        if (hwReadoutCode) hwReadoutCode.textContent = info.code;
+        if (hwReadoutTitle) hwReadoutTitle.textContent = info.title;
+        if (hwReadoutSpec) hwReadoutSpec.textContent = info.spec;
+      }
     }
 
     if (hwTabs.length) {
@@ -336,14 +380,25 @@
       }
     }
 
+    function updateWorkflowStatusText() {
+      if (!statusLabel || !workflowCanvas) return;
+      var wallsOn = workflowCanvas.getAttribute("data-walls") !== "false";
+      var mepOn = workflowCanvas.getAttribute("data-mep") !== "false";
+      if (!wallsOn && !mepOn) {
+        statusLabel.textContent = "All projected layers hidden \u2014 toggle a layer to preview";
+        return;
+      }
+      if (stepCaptions[currentStep]) {
+        statusLabel.textContent = stepCaptions[currentStep];
+      }
+    }
+
     function activateStep(step, moveFocus) {
       if (!workflowCanvas) return;
       currentStep = step;
       workflowCanvas.setAttribute("data-step", step);
       workflowCanvas.setAttribute("aria-labelledby", "tab-step-" + step);
-      if (statusLabel && stepCaptions[step]) {
-        statusLabel.textContent = stepCaptions[step];
-      }
+      updateWorkflowStatusText();
       stepButtons.forEach(function (btn) {
         var active = btn.getAttribute("data-step-btn") === step;
         btn.setAttribute("aria-selected", active ? "true" : "false");
@@ -397,10 +452,13 @@
     function bindLayerToggle(btnId, attrName) {
       var btn = document.getElementById(btnId);
       if (!btn || !workflowCanvas) return;
+      var stateEl = btn.querySelector(".layer-state");
       btn.addEventListener("click", function () {
         var nextState = btn.getAttribute("aria-pressed") !== "true";
         btn.setAttribute("aria-pressed", nextState ? "true" : "false");
+        if (stateEl) stateEl.textContent = nextState ? "ON" : "OFF";
         workflowCanvas.setAttribute(attrName, nextState ? "true" : "false");
+        updateWorkflowStatusText();
       });
     }
     bindLayerToggle("toggle-walls", "data-walls");

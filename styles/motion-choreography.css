@@ -76,7 +76,7 @@ html.js-motion .hero-lead {
 }
 
 html.js-motion .hero-actions {
-  animation: heroCopyStep 0.72s var(--ease-out-expo) 350ms both;
+  animation: heroCopyStep 0.72s var(--ease-out-expo) 240ms both;
 }
 
 .hero-media-layer video {

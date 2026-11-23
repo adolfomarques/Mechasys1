@@ -593,9 +593,42 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(104deg, rgba(6, 11, 32, 0.9) 0%, rgba(9, 17, 51, 0.72) 50%, rgba(9, 17, 51, 0.42) 100%),
-    linear-gradient(180deg, rgba(6, 11, 32, 0.5) 0%, rgba(6, 11, 32, 0.12) 45%, rgba(6, 11, 32, 0.92) 100%);
+    linear-gradient(
+      90deg,
+      rgba(6, 11, 32, 0.88) 0%,
+      rgba(6, 11, 32, 0.76) 28%,
+      rgba(9, 17, 51, 0.44) 52%,
+      rgba(9, 17, 51, 0.14) 74%,
+      rgba(9, 17, 51, 0.06) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(6, 11, 32, 0.56) 0%,
+      rgba(6, 11, 32, 0.18) 12%,
+      rgba(6, 11, 32, 0) 24%,
+      rgba(6, 11, 32, 0) 76%,
+      rgba(6, 11, 32, 0.52) 100%
+    );
   pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .hero-scrim {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(6, 11, 32, 0.84) 0%,
+        rgba(9, 17, 51, 0.62) 65%,
+        rgba(9, 17, 51, 0.42) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(6, 11, 32, 0.58) 0%,
+        rgba(6, 11, 32, 0.14) 26%,
+        rgba(6, 11, 32, 0.22) 68%,
+        rgba(6, 11, 32, 0.74) 100%
+      );
+  }
 }
 
 /* Interactive 532nm CAD Laser Reticle (preserves native cursor) */

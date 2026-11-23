@@ -6,12 +6,34 @@
 /* 1. DESKTOP FLOATING LEFT MONOLITH (>= 1025px) */
 .left-dock {
   position: fixed;
-  left: 20px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   width: 56px;
   z-index: 600;
   filter: drop-shadow(0 20px 44px rgba(4, 9, 26, 0.45));
+  transition:
+    opacity 0.28s var(--ease-out-expo),
+    transform 0.34s var(--ease-out-expo),
+    visibility 0s linear 0s;
+}
+
+body[data-handoff="top"] .left-dock {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(-24px, -50%, 0);
+  transition:
+    opacity 0.24s var(--ease-out-expo),
+    transform 0.28s var(--ease-out-expo),
+    visibility 0s linear 0.24s;
+}
+
+body[data-handoff="dock"] .left-dock {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, -50%, 0);
 }
 
 .dock-frame {
@@ -362,8 +384,8 @@
   position: fixed;
   top: 20px;
   bottom: 20px;
-  left: 92px;
-  width: min(410px, calc(100vw - 112px));
+  left: 88px;
+  width: min(410px, calc(100vw - 108px));
   z-index: 590;
   filter: drop-shadow(0 28px 56px rgba(4, 9, 26, 0.62));
   opacity: 0;
@@ -677,96 +699,6 @@
   }
 }
 
-/* Lightweight Precision Dock Variant (Homepage Desktop >= 1280px) */
-.left-dock--precision {
-  left: 16px;
-  width: 46px;
-  filter: drop-shadow(0 14px 30px rgba(4, 9, 26, 0.32));
-}
-
-.left-dock--precision .dock-fill {
-  background-color: rgba(7, 13, 36, 0.72);
-}
-
-.left-dock--precision[data-surface="light"] .dock-fill,
-.left-dock--precision[data-surface="cobalt"] .dock-fill {
-  background-color: rgba(6, 11, 32, 0.88);
-}
-
-.left-dock--precision .dock-inner {
-  padding: 5px 1px;
-  gap: 3px;
-}
-
-.left-dock--precision .dock-brand {
-  width: 44px;
-  height: 44px;
-}
-
-.left-dock--precision .dock-brand::before {
-  inset: 4px;
-  background-color: rgba(0, 71, 187, 0.52);
-  clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
-}
-
-.left-dock--precision .dock-brand:hover::before,
-.left-dock--precision .dock-brand:focus-visible::before {
-  background-color: var(--cobalt-600);
-}
-
-.left-dock--precision .dock-brand svg {
-  width: 20px;
-  height: 20px;
-}
-
-.left-dock--precision .dock-menu-btn {
-  width: 44px;
-  min-height: 44px;
-  padding: 0;
-  background-color: transparent;
-}
-
-.left-dock--precision .dock-menu-btn:hover,
-.left-dock--precision .dock-menu-btn:focus-visible,
-.left-dock--precision .dock-menu-btn[aria-expanded="true"] {
-  background-color: rgba(0, 71, 187, 0.44);
-}
-
-.left-dock--precision .dock-menu-btn:hover .dock-tooltip,
-.left-dock--precision .dock-menu-btn:focus-visible .dock-tooltip {
-  opacity: 1;
-  transform: translate3d(0, -50%, 0);
-}
-
-.left-dock--precision .dock-spy {
-  width: 44px;
-}
-
-.left-dock--precision .dock-tick {
-  width: 44px;
-  height: 20px;
-}
-
-.page-home .dock-drawer {
-  left: 76px;
-}
-
-@media (max-width: 1279px) {
-  .left-dock--precision {
-    display: none;
-  }
-
-  .page-home .dock-drawer {
-    left: 24px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .page-home .dock-drawer {
-    left: 16px;
-  }
-}
-
 @media (max-width: 480px) {
   .dock-drawer-panel {
     padding: 20px 18px;
@@ -774,6 +706,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .left-dock,
   .dock-frame,
   .dock-fill,
   .dock-brand,

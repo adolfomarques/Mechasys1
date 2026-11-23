@@ -38,23 +38,16 @@
   --font-sans: "Switzer", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --container-max: 1460px;
-  --datum-left: 108px;
-  --datum-right: 64px;
+  --datum-left: 96px;
+  --datum-right: 56px;
   --scroll-y: 0px;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (min-width: 1280px) {
-  body.page-home {
-    --datum-left: 96px;
-    --datum-right: 56px;
-  }
-}
-
 @media (min-width: 1025px) and (max-width: 1279px) {
-  body.page-home {
-    --datum-left: 44px;
-    --datum-right: 44px;
+  :root {
+    --datum-left: 88px;
+    --datum-right: 36px;
   }
 }
 
@@ -146,7 +139,8 @@ a {
 }
 
 .btn-chamfer:focus-visible,
-.crest-menu-btn:focus-visible,
+.crest-more-btn:focus-visible,
+.crest-more-item:focus-visible,
 .hw-tab:focus-visible,
 .step-tab:focus-visible {
   outline-offset: -3px;
@@ -349,7 +343,7 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
 /* Unpinned Balanced 3-Zone Header Crest */
 .hero-top-crest {
   position: relative;
-  z-index: 4;
+  z-index: 20;
   padding-top: 22px;
 }
 
@@ -395,10 +389,14 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
   white-space: nowrap;
 }
 
-.crest-menu-btn {
+.crest-more-wrap {
+  position: relative;
+}
+
+.crest-more-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   min-height: 44px;
   padding: 8px 14px;
   background-color: rgba(255, 255, 255, 0.08);
@@ -410,25 +408,106 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
   line-height: 1;
   cursor: pointer;
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.crest-menu-btn:hover,
-.crest-menu-btn:focus-visible,
-.crest-menu-btn[aria-expanded="true"] {
+.crest-more-btn:hover,
+.crest-more-btn:focus-visible,
+.crest-more-btn[aria-expanded="true"] {
   background-color: rgba(0, 71, 187, 0.56);
   border-color: var(--laser-300);
+  color: var(--paper);
 }
 
-.crest-menu-btn[aria-expanded="true"] .menu-bars span:nth-child(1) {
-  top: 4.25px;
-  transform: rotate(45deg);
+.crest-more-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.22s var(--ease-out-expo);
 }
 
-.crest-menu-btn[aria-expanded="true"] .menu-bars span:nth-child(2) {
-  top: 4.25px;
-  width: 100%;
-  transform: rotate(-45deg);
+.crest-more-btn[aria-expanded="true"] .crest-more-chevron {
+  transform: rotate(180deg);
+}
+
+.crest-more-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 300px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: var(--navy-900);
+  border: 1px solid rgba(191, 209, 239, 0.24);
+  box-shadow: 0 22px 48px rgba(4, 9, 26, 0.62);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, -6px, 0);
+  transition: opacity 0.2s ease, transform 0.22s var(--ease-out-expo), visibility 0s linear 0.2s;
+}
+
+.crest-more-menu[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.2s ease, transform 0.22s var(--ease-out-expo), visibility 0s linear 0s;
+}
+
+.crest-more-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--paper);
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.crest-more-item:hover,
+.crest-more-item:focus-visible {
+  background-color: rgba(0, 71, 187, 0.42);
+  border-color: rgba(126, 242, 157, 0.36);
+}
+
+.crest-more-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.crest-more-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--paper);
+}
+
+.crest-more-sub {
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ice-200);
+}
+
+.crest-more-item svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--ice-200);
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.crest-more-item:hover svg {
+  transform: translateX(3px);
+  color: var(--laser-300);
 }
 
 .crest-utility {
@@ -456,18 +535,35 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
 }
 
 @media (max-width: 1200px) and (min-width: 1025px) {
+  .crest-row {
+    gap: 12px;
+  }
+
   .crest-wordmark svg {
-    width: 132px;
+    width: 124px;
+  }
+
+  .crest-nav {
+    gap: 2px;
   }
 
   .crest-link {
-    padding: 8px 8px;
-    font-size: 13.5px;
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+
+  .crest-actions {
+    gap: 8px;
+  }
+
+  .crest-more-btn {
+    padding: 8px 11px;
+    font-size: 13px;
   }
 
   .btn-crest-cta {
-    padding: 10px 14px;
-    font-size: 13.5px;
+    padding: 10px 13px;
+    font-size: 13px;
   }
 }
 
@@ -2484,7 +2580,11 @@ h1, h2, h3, h4, p, dl, dd, dt, ul, figure {
   .btn-chamfer,
   .btn-tertiary,
   .btn-tertiary svg,
-  .crest-menu-btn,
+  .crest-more-btn,
+  .crest-more-chevron,
+  .crest-more-menu,
+  .crest-more-item,
+  .crest-more-item svg,
   .crest-link,
   .hw-tab,
   .hw-tab-num,

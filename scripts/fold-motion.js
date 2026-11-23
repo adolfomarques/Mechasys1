@@ -7,24 +7,61 @@
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     /* ------------------------------------------------------------
-       1. Slide-Over Drawer Controller & Stagger Setup
+       1. Slide-Over Drawer Controller, Scroll Handoff & Crest More Menu
        ------------------------------------------------------------ */
     var dockMenuBtn = document.getElementById("dock-menu-toggle");
     var dockMenuLabel = document.getElementById("dock-menu-label");
-    var dockMenuTooltip = document.getElementById("dock-menu-tooltip");
-    var crestMenuBtn = document.getElementById("crest-menu-toggle");
-    var crestMenuLabel = document.getElementById("crest-menu-label");
+    var crestMoreBtn = document.getElementById("crest-more-btn");
+    var crestMoreMenu = document.getElementById("crest-more-menu");
     var mobileMenuBtn = document.getElementById("mobile-menu-toggle");
     var mobileMenuLabel = document.getElementById("mobile-menu-label");
     var drawerCloseBtn = document.getElementById("drawer-close-btn");
     var dockDrawer = document.getElementById("dock-drawer");
     var dockBackdrop = document.getElementById("dock-backdrop");
     var lastTriggerEl = null;
+    var HANDOFF_SCROLL_Y = 160;
 
     if (dockDrawer) {
       var drawerListItems = dockDrawer.querySelectorAll(".drawer-links li");
       for (var dIdx = 0; dIdx < drawerListItems.length; dIdx++) {
         drawerListItems[dIdx].style.setProperty("--item-idx", String(dIdx));
+      }
+    }
+
+    function setMoreMenuOpen(isOpen, restoreFocus) {
+      if (!crestMoreBtn || !crestMoreMenu) return;
+      crestMoreBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      crestMoreMenu.setAttribute("data-open", isOpen ? "true" : "false");
+      if (isOpen) {
+        crestMoreMenu.removeAttribute("inert");
+      } else {
+        crestMoreMenu.setAttribute("inert", "");
+        if (restoreFocus && typeof crestMoreBtn.focus === "function") {
+          try {
+            crestMoreBtn.focus({ preventScroll: true });
+          } catch (err) {
+            crestMoreBtn.focus();
+          }
+        }
+      }
+    }
+
+    function syncHandoffState(y) {
+      if (!document.body) return;
+      var drawerOpen = dockDrawer && dockDrawer.getAttribute("data-open") === "true";
+      var scrollPos =
+        typeof y === "number"
+          ? y
+          : window.scrollY || document.documentElement.scrollTop || 0;
+      var nextState = drawerOpen || scrollPos >= HANDOFF_SCROLL_Y ? "dock" : "top";
+      document.body.setAttribute("data-handoff", nextState);
+      if (
+        nextState === "dock" &&
+        !drawerOpen &&
+        crestMoreMenu &&
+        crestMoreMenu.getAttribute("data-open") === "true"
+      ) {
+        setMoreMenuOpen(false, false);
       }
     }
 
@@ -39,16 +76,17 @@
 
     function setDrawerOpen(isOpen, restoreFocus) {
       if (!dockDrawer || !dockBackdrop) return;
+      if (isOpen) {
+        setMoreMenuOpen(false, false);
+      }
       dockDrawer.setAttribute("data-open", isOpen ? "true" : "false");
       dockBackdrop.setAttribute("data-open", isOpen ? "true" : "false");
 
       if (dockMenuBtn) dockMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      if (crestMenuBtn) crestMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       if (mobileMenuBtn) mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
       if (dockMenuLabel) dockMenuLabel.textContent = isOpen ? "Close" : "Menu";
-      if (dockMenuTooltip) dockMenuTooltip.textContent = isOpen ? "Close menu" : "All pages";
-      if (crestMenuLabel) crestMenuLabel.textContent = isOpen ? "Close" : "Menu";
       if (mobileMenuLabel) mobileMenuLabel.textContent = isOpen ? "Close" : "Menu";
+      syncHandoffState();
 
       if (isOpen) {
         dockDrawer.removeAttribute("inert");
@@ -86,15 +124,34 @@
         toggleDrawer(dockMenuBtn);
       });
     }
-    if (crestMenuBtn) {
-      crestMenuBtn.addEventListener("click", function () {
-        toggleDrawer(crestMenuBtn);
-      });
-    }
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener("click", function () {
         toggleDrawer(mobileMenuBtn);
       });
+    }
+    if (crestMoreBtn && crestMoreMenu) {
+      crestMoreBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = crestMoreBtn.getAttribute("aria-expanded") === "true";
+        setMoreMenuOpen(!isOpen, false);
+      });
+
+      document.addEventListener("click", function (e) {
+        if (crestMoreMenu.getAttribute("data-open") !== "true") return;
+        if (crestMoreBtn.contains(e.target) || crestMoreMenu.contains(e.target)) return;
+        setMoreMenuOpen(false, false);
+      });
+
+      crestMoreMenu.addEventListener("click", function (e) {
+        if (e.target && e.target.closest && e.target.closest("a[href]")) {
+          setMoreMenuOpen(false, false);
+        }
+      });
+    }
+    if (dockDrawer && typeof MutationObserver === "function") {
+      new MutationObserver(function () {
+        syncHandoffState();
+      }).observe(dockDrawer, { attributes: true, attributeFilter: ["data-open"] });
     }
     if (drawerCloseBtn) {
       drawerCloseBtn.addEventListener("click", function () {
@@ -108,6 +165,12 @@
     }
 
     document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && crestMoreMenu && crestMoreMenu.getAttribute("data-open") === "true") {
+        e.preventDefault();
+        setMoreMenuOpen(false, true);
+        return;
+      }
+
       if (!dockDrawer || dockDrawer.getAttribute("data-open") !== "true") return;
 
       if (e.key === "Escape") {
@@ -789,6 +852,8 @@
       var vh = window.innerHeight || 800;
       var vw = window.innerWidth || 1280;
       var midY = vh * 0.5;
+
+      syncHandoffState(y);
 
       document.documentElement.style.setProperty("--scroll-y", Math.min(y, 900) + "px");
       var heroProg = Math.min(1, Math.max(0, y / Math.max(480, vh * 0.82)));

@@ -14,7 +14,9 @@
     var currentPath = normalizeRoute(window.location.pathname);
 
     /* 1. Mark Active Page in Navigation Crest & Drawer */
-    var navLinks = document.querySelectorAll("#dock-drawer a[href], .crest-utility a[href]");
+    var navLinks = document.querySelectorAll(
+      "#dock-drawer a[href], .crest-nav a[href], .crest-more-menu a[href], .crest-utility a[href]"
+    );
     for (var n = 0; n < navLinks.length; n++) {
       var href = navLinks[n].getAttribute("href");
       if (!href || href.charAt(0) === "#" || href.indexOf("http") === 0) continue;

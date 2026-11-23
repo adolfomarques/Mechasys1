@@ -10,6 +10,16 @@
   text-underline-offset: 6px;
 }
 
+.crest-more-item[aria-current="page"] {
+  background-color: rgba(0, 71, 187, 0.34);
+  border-color: rgba(126, 242, 157, 0.44);
+}
+
+.crest-more-item[aria-current="page"] .crest-more-title,
+.crest-more-item[aria-current="page"] svg {
+  color: var(--laser-300);
+}
+
 .drawer-links a[aria-current="page"] {
   background-color: rgba(0, 71, 187, 0.34);
   border-color: rgba(126, 242, 157, 0.44);

@@ -51,7 +51,7 @@
   <script src="../scripts/fold-motion.js" defer></script>
   <script src="../scripts/internal-interactions.js" defer></script>
 </head>
-<body>
+<body data-handoff="top">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Shared Official Mechasys Vector Symbols -->
@@ -128,14 +128,6 @@
         </a>
       </nav>
 
-      <div class="dock-divider" aria-hidden="true"></div>
-
-      <a href="../contactus/" class="dock-cta-btn" aria-label="Assess your project">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 17L17 7M7 7h10v10"></path>
-        </svg>
-        <span class="dock-tooltip">Assess your project</span>
-      </a>
     </div>
   </aside>
 
@@ -273,18 +265,74 @@
         <div class="page-hero-scrim"></div>
       </div>
 
-      <div class="hero-top-crest">
+      <header class="hero-top-crest" aria-label="Primary site header">
         <div class="datum-shell crest-row">
           <a href="../" class="crest-wordmark" aria-label="Mechasys home">
             <svg viewBox="0 0 1766.8 284.51" aria-hidden="true"><use href="#mechasys-wordmark"></use></svg>
           </a>
-          <div class="crest-utility">
+          <nav class="crest-nav" aria-label="Primary navigation">
+            <a href="../how-it-works/" class="crest-link">How it works</a>
+            <a href="../applications/" class="crest-link">Applications</a>
+            <a href="../resources/customer-results/" class="crest-link">Case Studies</a>
             <a href="../datasheet/" class="crest-link">XR Datasheet</a>
             <a href="../pricing/" class="crest-link">Buy or Rent</a>
-            <a href="../contactus/" class="btn-chamfer btn-primary-light">Assess your project</a>
+          </nav>
+          <div class="crest-actions">
+            <div class="crest-more-wrap">
+              <button
+                type="button"
+                class="crest-more-btn"
+                id="crest-more-btn"
+                aria-expanded="false"
+                aria-controls="crest-more-menu"
+                aria-haspopup="true">
+                <span>More</span>
+                <svg class="crest-more-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="crest-more-menu" id="crest-more-menu" role="region" aria-label="More pages" data-open="false" inert>
+                <a href="../become-a-dealer/" class="crest-more-item">
+                  <span class="crest-more-copy">
+                    <span class="crest-more-title">Partners</span>
+                    <span class="crest-more-sub">Global distributor network</span>
+                  </span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                </a>
+                <a href="../company/" class="crest-more-item">
+                  <span class="crest-more-copy">
+                    <span class="crest-more-title">Company</span>
+                    <span class="crest-more-sub">Montréal HQ, France &amp; United States</span>
+                  </span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                </a>
+                <a href="../resources/insights/" class="crest-more-item">
+                  <span class="crest-more-copy">
+                    <span class="crest-more-title">Insights</span>
+                    <span class="crest-more-sub">Guides, news &amp; industry research</span>
+                  </span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                </a>
+                <a href="../press-kit/" class="crest-more-item">
+                  <span class="crest-more-copy">
+                    <span class="crest-more-title">Press Kit</span>
+                    <span class="crest-more-sub">Brand assets &amp; media resources</span>
+                  </span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                </a>
+                <a href="../careers/" class="crest-more-item">
+                  <span class="crest-more-copy">
+                    <span class="crest-more-title">Careers</span>
+                    <span class="crest-more-sub">Join our robotics engineering team</span>
+                  </span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+            <a href="../contactus/" class="btn-chamfer btn-cobalt btn-crest-cta">Assess your project</a>
           </div>
         </div>
-      </div>
+      </header>
 
       <div class="datum-shell page-hero-body">
         <div class="page-hero-copy">
